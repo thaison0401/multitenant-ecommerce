@@ -39,14 +39,14 @@ export const NavbarSidebar = ({ items, open, onOpenChange }: Props) => {
           <div className="border-t">
             <Link
               onClick={() => onOpenChange(false)}
-              href="/sign in"
+              href="/sign-in"
               className="w-full text-left p-4 hover:bg-black hover:text-white flex items-center text-base font-medium"
             >
               Log in
             </Link>
             <Link
               onClick={() => onOpenChange(false)}
-              href="/sign up"
+              href="/sign-up"
               className="w-full text-left p-4 hover:bg-black hover:text-white flex items-center text-base font-medium"
             >
               Start selling
