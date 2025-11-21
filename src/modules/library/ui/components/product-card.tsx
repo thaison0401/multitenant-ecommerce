@@ -3,8 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { StarIcon } from "lucide-react";
 
-// TODO: Add real ratings
-
 interface ProductCardProps {
   id: string;
   name: string;
@@ -65,6 +63,6 @@ export const ProductCard = ({
 
 export const ProductCardSkeleton = () => {
   return (
-    <div className="w-full aspect-3/4 bg-neutral-200 rounded-lg animate-pulse"></div>
+    <div className="w-full aspect-3/4 bg-neutral-200 rounded-lg animate-pulse" />
   );
 };
