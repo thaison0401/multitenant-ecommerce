@@ -225,6 +225,8 @@ export interface Category {
   createdAt: string;
 }
 /**
+ * You must verify your account before creating products
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
@@ -243,7 +245,7 @@ export interface Product {
   cover?: (string | null) | Media;
   refundPolicy?: ('30-day' | '14-day' | '7-day' | '3-day' | '1-day' | 'no-refunds') | null;
   /**
-   * Protected content only visible to customers after purchase. Add product documentation, downloadable files, getting started guides, and bonus materials. Supports Markdown formatting
+   * Protected content only visible to customers after purchase. Add product documentation, downloadable files, getting started guides, and bonus materials. Supports Markdown formatting.
    */
   content?: string | null;
   updatedAt: string;
@@ -273,6 +275,10 @@ export interface Order {
    * Stripe checkout session associated with the order
    */
   stripeCheckoutSessionId: string;
+  /**
+   * Stripe account associated with the order
+   */
+  stripeAccountId?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -481,6 +487,7 @@ export interface OrdersSelect<T extends boolean = true> {
   user?: T;
   product?: T;
   stripeCheckoutSessionId?: T;
+  stripeAccountId?: T;
   updatedAt?: T;
   createdAt?: T;
 }
