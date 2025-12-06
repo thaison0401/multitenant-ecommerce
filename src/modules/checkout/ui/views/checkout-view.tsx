@@ -68,7 +68,7 @@ export const CheckoutView = ({ tenantSlug }: CheckoutViewProps) => {
   useEffect(() => {
     if (error?.data?.code === "NOT_FOUND") {
       clearCart();
-      toast.warning("Invalid products found, cart cleared");
+      toast.warning("Sản phẩm không còn tồn tại, giỏ hàng đã được làm mới");
     }
   }, [error, clearCart]);
 
@@ -87,7 +87,7 @@ export const CheckoutView = ({ tenantSlug }: CheckoutViewProps) => {
       <div className="lg:pt-16 pt-4 px-4 lg:px-12">
         <div className="border border-black border-dashed flex items-center justify-center p-8 flex-col gap-y-4 bg-white w-full rounded-lg">
           <InboxIcon />
-          <p className="text-base font-medium">No products found</p>
+          <p className="text-base font-medium">Giỏ hàng của bạn đang trống</p>
         </div>
       </div>
     );

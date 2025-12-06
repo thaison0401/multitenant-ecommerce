@@ -63,7 +63,7 @@ export const TagsFilter = ({ value, onChange }: TagsFilterProps) => {
           onClick={() => fetchNextPage()}
           className="underline font-medium justify-start text-start disabled:opacity-50 cursor-pointer"
         >
-          Load more...
+          Xem thêm...
         </button>
       )}
     </div>

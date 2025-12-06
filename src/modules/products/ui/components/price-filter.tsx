@@ -51,7 +51,7 @@ export const PriceFilter = ({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-2">
-        <Label className="font-medium text-base ">Minimum price</Label>
+        <Label className="font-medium text-base ">Giá tối thiểu</Label>
         <Input
           type="text"
           placeholder="$0"
@@ -60,7 +60,7 @@ export const PriceFilter = ({
         />
       </div>
       <div className="flex flex-col gap-2">
-        <Label className="font-medium text-base ">Maximum price</Label>
+        <Label className="font-medium text-base ">Giá tối đa</Label>
         <Input
           type="text"
           placeholder="∞" //Infinity sign

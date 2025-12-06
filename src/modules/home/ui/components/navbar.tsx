@@ -40,11 +40,11 @@ const NavbarItems = ({ href, children, isActive }: NavbarItemsProps) => {
 };
 
 const navbarItems = [
-  { href: "/", children: "Home" },
-  { href: "/about", children: "About" },
-  { href: "/features", children: "Features" },
-  { href: "/pricing", children: "Pricing" },
-  { href: "/contact", children: "Contact" },
+  { href: "/", children: "Trang chủ" },
+  { href: "/about", children: "Giới thiệu" },
+  { href: "/features", children: "Tính năng" },
+  { href: "/pricing", children: "Bảng giá" },
+  { href: "/contact", children: "Liên hệ" },
 ];
 
 export const Navbar = () => {
@@ -86,7 +86,7 @@ export const Navbar = () => {
             asChild
             className="border-l border-t-0 border-r-0 px-12 h-full rounded-none bg-black text-white hover:bg-pink-400 hover:text-black transition-colors text-lg"
           >
-            <Link href="/admin">Dashboard</Link>
+            <Link href="/admin">Trang quản trị</Link>
           </Button>
         </div>
       ) : (
@@ -97,7 +97,7 @@ export const Navbar = () => {
             className="border-l border-t-0 border-r-0 px-12 h-full rounded-none bg-white hover:bg-pink-400 transition-colors text-lg"
           >
             <Link prefetch href="/sign-in">
-              Log in
+              Đăng nhập
             </Link>
           </Button>
           <Button
@@ -105,7 +105,7 @@ export const Navbar = () => {
             className="border-l border-t-0 border-r-0 px-12 h-full rounded-none bg-black text-white hover:bg-pink-400 hover:text-black transition-colors text-lg"
           >
             <Link prefetch href="/sign-up">
-              Start Selling
+              Bắt đầu bán hàng
             </Link>
           </Button>
         </div>

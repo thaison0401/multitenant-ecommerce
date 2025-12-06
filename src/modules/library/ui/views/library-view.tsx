@@ -10,13 +10,15 @@ export const LibraryView = () => {
       <nav className="p-4 bg-[#F4F4F0] w-full border-b">
         <Link prefetch href="/" className="flex items-center gap-2">
           <ArrowLeftIcon className="size-4" />
-          <span className="text font-medium">Continue Shopping</span>
+          <span className="text font-medium">Tiếp tục mua sắm</span>
         </Link>
       </nav>
       <header className="bg-[#F4F4F0] py-8 border-b">
         <div className="max-w-(--breakpoint-xl) mx-auto px-4 lg:px-12 flex flex-col gap-y-4">
-          <h1 className="text-[40px] font-medium">Library</h1>
-          <p className="font-medium">Your purchases and reviews</p>
+          <h1 className="text-[40px] font-medium">Trang thư viện</h1>
+          <p className="font-medium">
+            Nơi đây chứa các sản phẩm bạn đã mua & đánh giá
+          </p>
         </div>
       </header>
       <section className="max-w-(--breakpoint-xl) mx-auto px-4 lg:px-12 py-10">

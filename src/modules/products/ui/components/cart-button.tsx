@@ -22,7 +22,7 @@ export const CartButton = ({ tenantSlug, productId, isPurchased }: Props) => {
         className="flex-1 font-medium bg-white"
       >
         <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/library/${productId}`}>
-          View in Library
+          Xem trong thư viện
         </Link>
       </Button>
     );
@@ -37,7 +37,9 @@ export const CartButton = ({ tenantSlug, productId, isPurchased }: Props) => {
       )}
       onClick={() => cart.toggleProduct(productId)}
     >
-      {cart.isProductInCart(productId) ? "Remove from cart" : "Add to cart"}
+      {cart.isProductInCart(productId)
+        ? "Xóa khỏi giỏ hàng"
+        : "Thêm vào giỏ hàng"}
     </Button>
   );
 };
