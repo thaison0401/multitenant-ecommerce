@@ -18,7 +18,7 @@ export const ProductListView = ({
   return (
     <div className="px-4 lg:px-12 py-8 flex flex-col gap-4">
       <div className="flex flex-col lg:flex-row lg:items-center gap-y-2 lg:gap-y-0 justify-between">
-        <p className="text-2xl font-medium">Curated for you</p>
+        <p className="text-2xl font-medium">Sản phẩm đề xuất</p>
         <ProductSort />
       </div>
 

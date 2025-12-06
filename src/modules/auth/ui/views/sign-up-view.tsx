@@ -91,27 +91,29 @@ export const SignUpView = () => {
                 className="text-base border-none underline"
               >
                 <Link prefetch href="/sign-in">
-                  Sign in
+                  Đăng nhập
                 </Link>
               </Button>
             </div>
             <h1 className="text-4xl font-medium">
-              Join over 1,580 creators earning money on Funroad.
+              Tham gia cùng hơn 1,500 nhà cung cấp kiếm tiền trên Funroad.
             </h1>
             <FormField
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base">Username</FormLabel>
+                  <FormLabel className="text-base">Nhà cung cấp</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
                   <FormDescription
                     className={cn("hidden", showPreview && "block")}
                   >
-                    Your store will be available at&nbsp;
+                    Địa chỉ nhà cung cấp:&nbsp;
                     {/* TODO: Use proper method to generate preview url */}
-                    <strong>{username}</strong>.shop.com
+                    <strong>
+                      multitenant-ecommerce-pearl.vercel.app/tenants/{username}
+                    </strong>
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -133,7 +135,7 @@ export const SignUpView = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base">Password</FormLabel>
+                  <FormLabel className="text-base">Mật khẩu</FormLabel>
                   <FormControl>
                     <Input {...field} type="password" />
                   </FormControl>
@@ -148,7 +150,7 @@ export const SignUpView = () => {
               variant="elevated"
               className="bg-black text-white hover:bg-pink-400 hover:text-primary"
             >
-              Create account
+              Tạo tài khoản
             </Button>
           </form>
         </Form>

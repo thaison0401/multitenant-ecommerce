@@ -83,11 +83,11 @@ export const SignInView = () => {
                 className="text-base border-none underline"
               >
                 <Link prefetch href="/sign-up">
-                  Sign up
+                  Đăng ký
                 </Link>
               </Button>
             </div>
-            <h1 className="text-4xl font-medium">Welcome back to Funroad.</h1>
+            <h1 className="text-4xl font-medium">Chào mừng trở lại Funroad.</h1>
             <FormField
               name="email"
               render={({ field }) => (
@@ -104,7 +104,7 @@ export const SignInView = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base">Password</FormLabel>
+                  <FormLabel className="text-base">Mật khẩu</FormLabel>
                   <FormControl>
                     <Input {...field} type="password" />
                   </FormControl>
@@ -119,7 +119,7 @@ export const SignInView = () => {
               variant="elevated"
               className="bg-black text-white hover:bg-pink-400 hover:text-primary"
             >
-              Log in
+              Đăng nhập
             </Button>
           </form>
         </Form>

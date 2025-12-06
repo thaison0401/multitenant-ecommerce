@@ -60,7 +60,7 @@ export const CheckoutItem = ({
           onClick={onRemove}
           type="button"
         >
-          Remove
+          Xóa
         </button>
       </div>
     </div>

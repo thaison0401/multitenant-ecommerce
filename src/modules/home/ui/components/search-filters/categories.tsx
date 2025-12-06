@@ -118,7 +118,7 @@ export const Categories = ({ data }: Props) => {
             )}
             onClick={() => setIsSidebarOpen(true)}
           >
-            View All
+            Xem tất cả danh mục
             <ListFilterIcon className="ml-2" />
           </Button>
         </div>

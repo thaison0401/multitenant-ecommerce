@@ -20,7 +20,7 @@ export const ProductSort = () => {
         variant="secondary"
         onClick={() => setFilters({ sort: "curated" })}
       >
-        Curated
+        Đề xuất
       </Button>
       <Button
         size="sm"
@@ -32,7 +32,7 @@ export const ProductSort = () => {
         variant="secondary"
         onClick={() => setFilters({ sort: "trending" })}
       >
-        Trending
+        Thịnh hành
       </Button>
       <Button
         size="sm"
@@ -44,7 +44,7 @@ export const ProductSort = () => {
         variant="secondary"
         onClick={() => setFilters({ sort: "hot_and_new" })}
       >
-        Hot & New
+        Mới & Hot
       </Button>
     </div>
   );

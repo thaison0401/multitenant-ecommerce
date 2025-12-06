@@ -21,7 +21,7 @@ const CartButton = dynamic(
     ssr: false,
     loading: () => (
       <Button disabled className="flex-1 bg-pink-400">
-        Add to cart
+        Thêm vào giỏ hàng
       </Button>
     ),
   }
@@ -92,7 +92,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
                     iconClassName="size-4"
                   />
                   <p className="text-base font-medium">
-                    {data.reviewCount} ratings
+                    {data.reviewCount} đánh giá
                   </p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
               <div className="flex items-center gap-2">
                 <StarRating rating={data.reviewRating} iconClassName="size-4" />
                 <p className="text-base font-medium">
-                  {data.reviewCount} ratings
+                  {data.reviewCount} đánh giá
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
                 <RichText data={data.description} />
               ) : (
                 <p className="font-medium text-muted-foreground italic">
-                  No description provided
+                  Chưa có mô tả cho sản phẩm này!
                 </p>
               )}
             </div>
@@ -133,7 +133,7 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
                     onClick={() => {
                       setIsCopied(true);
                       navigator.clipboard.writeText(window.location.href);
-                      toast.success("URL copied to clipboard");
+                      toast.success("Đã sao chép đường dẫn sản phẩm!");
 
                       setTimeout(() => {
                         setIsCopied(false);
@@ -147,26 +147,24 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
 
                 <p className="text-center font-medium">
                   {data.refundPolicy === "no-refunds"
-                    ? "No refunds"
-                    : `${data.refundPolicy} money back guarantee`}
+                    ? "Không hỗ trợ hoàn tiền"
+                    : `${data.refundPolicy?.replace("-day", " ngày") || "30 ngày"} cam kết hoàn tiền`}
                 </p>
               </div>
 
               <div className="p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-medium">Ratings</h3>
+                  <h3 className="text-xl font-medium">Đánh giá</h3>
                   <div className="flex items-center gap-x-1 font-medium">
                     <StarIcon className="size-4 fill-black" />
                     <p>({data.reviewRating})</p>
-                    <p className="text-base">{data.reviewCount} ratings</p>
+                    <p className="text-base">{data.reviewCount} đánh giá</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-[auto_1fr_auto] gap-3 mt-4">
                   {[5, 4, 3, 2, 1].map((stars) => (
                     <Fragment key={stars}>
-                      <div className="font-medium">
-                        {stars} {stars === 1 ? "star" : "stars"}
-                      </div>
+                      <div className="font-medium">{stars} sao</div>
                       <Progress
                         value={data.ratingDistribution[stars]}
                         className="h-[1lh]"

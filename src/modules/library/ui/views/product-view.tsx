@@ -28,7 +28,7 @@ export const ProductView = ({ productId }: Props) => {
       <nav className="p-4 bg-[#F4F4F0] w-full border-b">
         <Link prefetch href="/library" className="flex items-center gap-2">
           <ArrowLeftIcon className="size-4" />
-          <span className="text font-medium">Back to library</span>
+          <span className="text font-medium">Quay lại thư viện</span>
         </Link>
       </nav>
       <header className="bg-[#F4F4F0] py-8 border-b">
@@ -51,7 +51,7 @@ export const ProductView = ({ productId }: Props) => {
               <RichText data={data.content} />
             ) : (
               <p className="font-medium italic text-muted-foreground">
-                No special content
+                Sản phẩm này không có nội dung đính kèm
               </p>
             )}
           </div>
@@ -67,7 +67,7 @@ export const ProductViewSkeleton = () => {
       <nav className="p-4 bg-[#F4F4F0] w-full border-b">
         <div className="flex items-center gap-2">
           <ArrowLeftIcon className="size-4" />
-          <span className="text font-medium">Back to library</span>
+          <span className="text font-medium">Quay lại thư viện</span>
         </div>
       </nav>
     </div>

@@ -25,8 +25,13 @@ interface Props {
 }
 
 const formSchema = z.object({
-  rating: z.number().min(1, { message: "Rating is required" }).max(5),
-  description: z.string().min(1, { message: "Description is required" }),
+  rating: z
+    .number()
+    .min(1, { message: "Vui lòng chọn số sao đánh giá" })
+    .max(5),
+  description: z
+    .string()
+    .min(1, { message: "Vui lòng nhập nội dung đánh giá" }),
 });
 
 export const ReviewForm = ({ productId, initialData }: Props) => {
@@ -96,7 +101,9 @@ export const ReviewForm = ({ productId, initialData }: Props) => {
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <p className="font-medium">
-          {isPreview ? "Your rating:" : "Liked it? Give it a rating"}
+          {isPreview
+            ? "Đánh giá của bạn về sản phẩm"
+            : "Đánh giá chất lượng sản phẩm"}
         </p>
         <FormField
           control={form.control}
@@ -121,7 +128,7 @@ export const ReviewForm = ({ productId, initialData }: Props) => {
             <FormItem>
               <FormControl>
                 <Textarea
-                  placeholder="Want to leave a written review?"
+                  placeholder="Hãy chia sẻ những điều bạn thích về sản phẩm này nhé..."
                   disabled={isPreview}
                   {...field}
                 />
@@ -138,7 +145,7 @@ export const ReviewForm = ({ productId, initialData }: Props) => {
             size="lg"
             className="bg-black text-white hover:bg-pink-400 hover:text-primary w-fit"
           >
-            {initialData ? "Update review" : "Post review"}
+            {initialData ? "Cập nhật" : "Gửi"}
           </Button>
         )}
       </form>
@@ -150,7 +157,7 @@ export const ReviewForm = ({ productId, initialData }: Props) => {
           variant="elevated"
           className="w-fit mt-4"
         >
-          Edit
+          Chỉnh sửa
         </Button>
       )}
     </Form>
@@ -160,9 +167,12 @@ export const ReviewForm = ({ productId, initialData }: Props) => {
 export const ReviewFormSkeleton = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <p className="font-medium">Liked it? Give it a rating</p>
+      <p className="font-medium">Đánh giá chất lượng sản phẩm</p>
       <StarPicker disabled />
-      <Textarea placeholder="Want to leave a written review?" disabled />
+      <Textarea
+        placeholder="Hãy chia sẻ những điều bạn thích về sản phẩm này nhé..."
+        disabled
+      />
       <Button
         variant="elevated"
         disabled
@@ -170,7 +180,7 @@ export const ReviewFormSkeleton = () => {
         size="lg"
         className="bg-black text-white hover:bg-pink-400 hover:text-primary w-fit"
       >
-        Post review
+        Gửi
       </Button>
     </div>
   );

@@ -34,7 +34,7 @@ export const authRouter = createTRPCRouter({
       if (existingUser) {
         throw new TRPCError({
           code: "BAD_REQUEST",
-          message: "Username already taken",
+          message: "Tên cửa hàng đã tồn tại", // Đã Việt hóa
         });
       }
 
@@ -43,7 +43,7 @@ export const authRouter = createTRPCRouter({
       if (!account) {
         throw new TRPCError({
           code: "BAD_REQUEST",
-          message: "Failed to create Stripe account",
+          message: "Không thể tạo tài khoản thanh toán Stripe",
         });
       }
 
@@ -70,6 +70,35 @@ export const authRouter = createTRPCRouter({
         },
       });
 
+      // Đăng nhập ngay sau khi tạo
+      try {
+        const data = await ctx.db.login({
+          collection: "users",
+          data: {
+            email: input.email,
+            password: input.password,
+          },
+        });
+
+        if (!data.token) {
+          throw new Error();
+        }
+
+        await generateAuthCookie({
+          prefix: ctx.db.config.cookiePrefix,
+          value: data.token,
+        });
+      } catch {
+        // Đã xóa biến error để tránh lỗi ESLint
+        throw new TRPCError({
+          code: "UNAUTHORIZED",
+          message: "Đăng nhập tự động thất bại", // Đã Việt hóa
+        });
+      }
+    }),
+
+  login: baseProcedure.input(loginSchema).mutation(async ({ input, ctx }) => {
+    try {
       const data = await ctx.db.login({
         collection: "users",
         data: {
@@ -79,39 +108,22 @@ export const authRouter = createTRPCRouter({
       });
 
       if (!data.token) {
-        throw new TRPCError({
-          code: "UNAUTHORIZED",
-          message: "Failed to login",
-        });
+        throw new Error();
       }
 
       await generateAuthCookie({
         prefix: ctx.db.config.cookiePrefix,
         value: data.token,
       });
-    }),
 
-  login: baseProcedure.input(loginSchema).mutation(async ({ input, ctx }) => {
-    const data = await ctx.db.login({
-      collection: "users",
-      data: {
-        email: input.email,
-        password: input.password,
-      },
-    });
-
-    if (!data.token) {
+      return data;
+    } catch {
+      // Đã xóa biến error để tránh lỗi ESLint
+      // Bắt mọi lỗi đăng nhập và trả về thông báo tiếng Việt chuẩn
       throw new TRPCError({
         code: "UNAUTHORIZED",
-        message: "Failed to login",
+        message: "Email hoặc mật khẩu không chính xác",
       });
     }
-
-    await generateAuthCookie({
-      prefix: ctx.db.config.cookiePrefix,
-      value: data.token,
-    });
-
-    return data;
   }),
 });

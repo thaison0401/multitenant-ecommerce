@@ -66,18 +66,18 @@ export const ProductFilters = () => {
   return (
     <div className="border rounded-md bg-white">
       <div className="p-4 border-b flex items-center justify-between">
-        <p className="font-medium">Filters</p>
+        <p className="font-medium">Bộ lọc</p>
         {hasAnyFilters && (
           <button
             className="underline cursor-pointer"
             onClick={() => onClear()}
             type="button"
           >
-            Clear
+            Xóa tất cả
           </button>
         )}
       </div>
-      <ProductFilter title="Price">
+      <ProductFilter title="Giá">
         <PriceFilter
           minPrice={filters.minPrice}
           maxPrice={filters.maxPrice}
@@ -85,7 +85,7 @@ export const ProductFilters = () => {
           onMaxPriceChange={(value) => onChange("maxPrice", value)}
         />
       </ProductFilter>
-      <ProductFilter title="Tags" className="border-b-0">
+      <ProductFilter title="Thẻ" className="border-b-0">
         <TagsFilter
           value={filters.tags}
           onChange={(value) => onChange("tags", value)}
