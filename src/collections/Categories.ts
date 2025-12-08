@@ -4,6 +4,10 @@ import { isSuperAdmin } from "@/lib/access";
 
 export const Categories: CollectionConfig = {
   slug: "categories",
+  labels: {
+    singular: "Danh mục",
+    plural: "Danh mục",
+  },
   access: {
     read: () => true,
     create: ({ req }) => isSuperAdmin(req.user),
@@ -19,14 +23,27 @@ export const Categories: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
+      label: "Tên danh mục",
     },
-    { name: "slug", type: "text", required: true, unique: true, index: true },
-    { name: "color", type: "text" },
+    {
+      name: "slug",
+      type: "text",
+      required: true,
+      unique: true,
+      index: true,
+      label: "Đường dẫn (Slug)",
+    },
+    { name: "color", type: "text", label: "Màu sắc (Mã Hex)" },
     {
       name: "parent",
       type: "relationship",
       relationTo: "categories",
       hasMany: false,
+      label: "Danh mục cấp trên",
+      admin: {
+        description:
+          "Chọn danh mục lớn chứa danh mục này (Để trống nếu đây là danh mục gốc)",
+      },
     },
     {
       name: "subcategories",
@@ -34,6 +51,7 @@ export const Categories: CollectionConfig = {
       collection: "categories",
       on: "parent",
       hasMany: true,
+      label: "Danh mục cấp dưới",
     },
   ],
 };

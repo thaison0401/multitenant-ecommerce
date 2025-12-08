@@ -21,6 +21,9 @@ import { Products } from "./collections/Products";
 import { Categories } from "./collections/Categories";
 import { Config } from "./payload-types";
 
+// Import gói ngôn ngữ tiếng Việt từ Payload
+import { vi } from "@payloadcms/translations/languages/vi";
+
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -34,6 +37,13 @@ export default buildConfig({
       beforeNavLinks: ["@/components/stripe-verify#StripeVerify"],
     },
   },
+
+  // Chinh sách i18n để hỗ trợ tiếng Việt
+  i18n: {
+    supportedLanguages: { vi }, // Khai báo hỗ trợ tiếng Việt
+    fallbackLanguage: "vi", // Đặt tiếng Việt làm ngôn ngữ mặc định (nếu muốn)
+  },
+
   collections: [
     Users,
     Media,

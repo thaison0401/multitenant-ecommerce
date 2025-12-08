@@ -4,6 +4,10 @@ import { isSuperAdmin } from "@/lib/access";
 
 export const Reviews: CollectionConfig = {
   slug: "reviews",
+  labels: {
+    singular: "Đánh giá",
+    plural: "Đánh giá",
+  },
   access: {
     read: ({ req }) => isSuperAdmin(req.user),
     create: ({ req }) => isSuperAdmin(req.user),
@@ -18,8 +22,16 @@ export const Reviews: CollectionConfig = {
       name: "description",
       type: "textarea",
       required: true,
+      label: "Nội dung đánh giá",
     },
-    { name: "rating", type: "number", required: true, min: 1, max: 5 },
+    {
+      name: "rating",
+      type: "number",
+      required: true,
+      min: 1,
+      max: 5,
+      label: "Số sao (1-5)",
+    },
 
     {
       name: "product",
@@ -27,6 +39,7 @@ export const Reviews: CollectionConfig = {
       relationTo: "products",
       hasMany: false,
       required: true,
+      label: "Sản phẩm",
     },
     {
       name: "user",
@@ -34,6 +47,7 @@ export const Reviews: CollectionConfig = {
       relationTo: "users",
       hasMany: false,
       required: true,
+      label: "Người dùng",
     },
   ],
 };

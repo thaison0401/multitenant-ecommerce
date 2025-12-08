@@ -21,6 +21,10 @@ const defaultTenantArrayField = tenantsArrayField({
 
 export const Users: CollectionConfig = {
   slug: "users",
+  labels: {
+    singular: "Tài khoản",
+    plural: "Tài khoản",
+  },
   access: {
     read: () => true,
     create: ({ req }) => isSuperAdmin(req.user),
@@ -32,7 +36,7 @@ export const Users: CollectionConfig = {
     },
   },
   admin: {
-    useAsTitle: "email",
+    useAsTitle: "username",
     hidden: ({ user }) => !isSuperAdmin(user),
   },
   auth: {
@@ -50,6 +54,7 @@ export const Users: CollectionConfig = {
       required: true,
       unique: true,
       type: "text",
+      label: "Người dùng",
     },
     {
       admin: {
@@ -59,16 +64,26 @@ export const Users: CollectionConfig = {
       type: "select",
       defaultValue: ["user"],
       hasMany: true,
-      options: ["super-admin", "user"],
+      label: "Vai trò & Quyền hạn",
+      options: [
+        { label: "Quản trị viên", value: "super-admin" },
+        { label: "Người dùng", value: "user" },
+      ],
       access: {
         update: ({ req }) => isSuperAdmin(req.user),
       },
     },
     {
       ...defaultTenantArrayField,
+      label: "Danh sách nhà cung cấp",
+      labels: {
+        singular: "Nhà cung cấp",
+        plural: "Nhà cung cấp",
+      },
       admin: {
         ...(defaultTenantArrayField?.admin || {}),
         position: "sidebar",
+        description: "Các nhà cung cấp mà tài khoản này có quyền quản lý.",
       },
     },
   ],

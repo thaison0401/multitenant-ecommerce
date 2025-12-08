@@ -37,7 +37,7 @@ export const protectedProcedure = baseProcedure.use(async ({ ctx, next }) => {
   if (!session.user) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
-      message: "Not authenticated",
+      message: "Vui lòng đăng nhập để tiếp tục thanh toán.",
     });
   }
 
