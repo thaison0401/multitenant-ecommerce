@@ -137,6 +137,9 @@ export interface User {
   id: string;
   username: string;
   roles?: ('super-admin' | 'user')[] | null;
+  /**
+   * Các nhà cung cấp mà tài khoản này có quyền quản lý.
+   */
   tenants?:
     | {
         tenant: string | Tenant;
@@ -168,20 +171,20 @@ export interface User {
 export interface Tenant {
   id: string;
   /**
-   * This is the name of the store (e.g. Sports Store)
+   * Tên hiển thị công khai (Ví dụ: funroad,...)
    */
   name: string;
   /**
-   * This is the subdomain for the store (e.g. [slug].Funroad.com
+   * Dùng làm địa chỉ truy cập shop. Lưu ý: Viết liền không dấu, không viết hoa, không ký tự đặc biệt (Ví dụ: funroad)
    */
   slug: string;
   image?: (string | null) | Media;
   /**
-   * Stripe Account ID associated with your shop
+   * Mã tài khoản kết nối Stripe của nhà cung cấp này (Dùng để nhận tiền)
    */
   stripeAccountId: string;
   /**
-   * You cannot create products until you submit your Stripe details
+   * Nhà cung cấp KHÔNG THỂ đăng bán sản phẩm nếu chưa hoàn tất việc gửi thông tin xác minh cho Stripe.
    */
   stripeDetailsSubmitted?: boolean | null;
   updatedAt: string;
@@ -194,6 +197,9 @@ export interface Tenant {
 export interface Media {
   id: string;
   tenant?: (string | null) | Tenant;
+  /**
+   * Mô tả ngắn gọn nội dung hình ảnh.
+   */
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -216,6 +222,9 @@ export interface Category {
   name: string;
   slug: string;
   color?: string | null;
+  /**
+   * Chọn danh mục lớn chứa danh mục này (Để trống nếu đây là danh mục gốc)
+   */
   parent?: (string | null) | Category;
   subcategories?: {
     docs?: (string | Category)[];
@@ -226,7 +235,7 @@ export interface Category {
   createdAt: string;
 }
 /**
- * You must verify your account before creating products
+ * Bạn phải xác minh tài khoản trước khi có thể đăng bán sản phẩm.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
@@ -251,7 +260,7 @@ export interface Product {
     [k: string]: unknown;
   } | null;
   /**
-   * Price in USD
+   * Giá tính bằng USD
    */
   price: number;
   category?: (string | null) | Category;
@@ -260,7 +269,7 @@ export interface Product {
   cover?: (string | null) | Media;
   refundPolicy?: ('30-day' | '14-day' | '7-day' | '3-day' | '1-day' | 'no-refunds') | null;
   /**
-   * Protected content only visible to customers after purchase. Add product documentation, downloadable files, getting started guides, and bonus materials. Supports Markdown formatting.
+   * Nội dung được bảo vệ, chỉ hiển thị cho khách hàng sau khi đã thanh toán. (Dùng để viết hướng dẫn, chèn link tải Ebook/Source code...).
    */
   content?: {
     root: {
@@ -278,11 +287,11 @@ export interface Product {
     [k: string]: unknown;
   } | null;
   /**
-   * If checked, this product will not be shown on the public storefront
+   * Nếu bật, sản phẩm này sẽ KHÔNG được hiển thị trên cửa hàng công khai (chỉ Admin mới nhìn thấy).
    */
   isPrivate?: boolean | null;
   /**
-   * If checked, this product will be archived
+   * Nếu chọn, sản phẩm này sẽ bị ẩn đi và không thể mua được nữa (thay vì xóa hẳn).
    */
   isArchived?: boolean | null;
   updatedAt: string;
@@ -309,11 +318,11 @@ export interface Order {
   user: string | User;
   product: string | Product;
   /**
-   * Stripe checkout session associated with the order
+   * Mã định danh dùng để đối soát thanh toán trên Stripe.
    */
   stripeCheckoutSessionId: string;
   /**
-   * Stripe account associated with the order
+   * ID tài khoản Stripe của người bán nhận tiền đơn hàng này.
    */
   stripeAccountId?: string | null;
   updatedAt: string;

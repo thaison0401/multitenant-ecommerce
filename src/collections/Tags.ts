@@ -4,6 +4,10 @@ import { isSuperAdmin } from "@/lib/access";
 
 export const Tags: CollectionConfig = {
   slug: "tags",
+  labels: {
+    singular: "Thẻ",
+    plural: "Thẻ",
+  },
   access: {
     read: () => true,
     create: ({ req }) => isSuperAdmin(req.user),
@@ -20,12 +24,14 @@ export const Tags: CollectionConfig = {
       type: "text",
       required: true,
       unique: true,
+      label: "Tên thẻ",
     },
     {
       name: "products",
       type: "relationship",
       relationTo: "products",
       hasMany: true,
+      label: "Sản phẩm áp dụng",
     },
   ],
 };

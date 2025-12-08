@@ -4,6 +4,10 @@ import { isSuperAdmin } from "@/lib/access";
 
 export const Tenants: CollectionConfig = {
   slug: "tenants",
+  labels: {
+    singular: "Nhà cung cấp",
+    plural: "Nhà cung cấp",
+  },
   access: {
     create: ({ req }) => isSuperAdmin(req.user),
     delete: ({ req }) => isSuperAdmin(req.user),
@@ -16,9 +20,9 @@ export const Tenants: CollectionConfig = {
       name: "name",
       required: true,
       type: "text",
-      label: "Store Name",
+      label: "Tên nhà cung cấp",
       admin: {
-        description: "This is the name of the store (e.g. Sports Store)",
+        description: "Tên hiển thị công khai (Ví dụ: funroad,...)",
       },
     },
     {
@@ -30,15 +34,17 @@ export const Tenants: CollectionConfig = {
       access: {
         update: ({ req }) => isSuperAdmin(req.user),
       },
+      label: "Mã đường dẫn (Slug)",
       admin: {
         description:
-          "This is the subdomain for the store (e.g. [slug].Funroad.com",
+          "Dùng làm địa chỉ truy cập shop. Lưu ý: Viết liền không dấu, không viết hoa, không ký tự đặc biệt (Ví dụ: funroad)",
       },
     },
     {
       name: "image",
       type: "upload",
       relationTo: "media",
+      label: "Logo nhà cung cấp",
     },
     {
       name: "stripeAccountId",
@@ -47,8 +53,10 @@ export const Tenants: CollectionConfig = {
       access: {
         update: ({ req }) => isSuperAdmin(req.user),
       },
+      label: "ID tài khoản Stripe",
       admin: {
-        description: "Stripe Account ID associated with your shop",
+        description:
+          "Mã tài khoản kết nối Stripe của nhà cung cấp này (Dùng để nhận tiền)",
       },
     },
     {
@@ -57,9 +65,10 @@ export const Tenants: CollectionConfig = {
       access: {
         update: ({ req }) => isSuperAdmin(req.user),
       },
+      label: "Đã hoàn tất xác minh Stripe",
       admin: {
         description:
-          "You cannot create products until you submit your Stripe details",
+          "Nhà cung cấp KHÔNG THỂ đăng bán sản phẩm nếu chưa hoàn tất việc gửi thông tin xác minh cho Stripe.",
       },
     },
   ],

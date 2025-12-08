@@ -4,6 +4,10 @@ import { isSuperAdmin } from "@/lib/access";
 
 export const Orders: CollectionConfig = {
   slug: "orders",
+  labels: {
+    singular: "Đơn hàng",
+    plural: "Đơn hàng",
+  },
   access: {
     read: ({ req }) => isSuperAdmin(req.user),
     create: ({ req }) => isSuperAdmin(req.user),
@@ -18,6 +22,7 @@ export const Orders: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
+      label: "Tên đơn hàng",
     },
     {
       name: "user",
@@ -25,6 +30,7 @@ export const Orders: CollectionConfig = {
       relationTo: "users",
       required: true,
       hasMany: false,
+      label: "Người dùng",
     },
     {
       name: "product",
@@ -32,20 +38,24 @@ export const Orders: CollectionConfig = {
       relationTo: "products",
       required: true,
       hasMany: false,
+      label: "Sản phẩm",
     },
     {
       name: "stripeCheckoutSessionId",
       type: "text",
       required: true,
+      label: "Mã giao dịch Stripe (Stripe ID)",
       admin: {
-        description: "Stripe checkout session associated with the order",
+        description: "Mã định danh dùng để đối soát thanh toán trên Stripe.",
       },
     },
     {
       name: "stripeAccountId",
       type: "text",
+      label: "ID tài khoản Người bán (Stripe Account ID)",
       admin: {
-        description: "Stripe account associated with the order",
+        description:
+          "ID tài khoản Stripe của người bán nhận tiền đơn hàng này.",
       },
     },
   ],
