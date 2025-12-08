@@ -19,7 +19,7 @@ export const reviewsRouter = createTRPCRouter({
       if (!product) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Product not found",
+          message: "Sản phẩm không tồn tại",
         });
       }
 
@@ -54,8 +54,10 @@ export const reviewsRouter = createTRPCRouter({
     .input(
       z.object({
         productId: z.string(),
-        rating: z.number().min(1, { message: "Rating is required" }).max(5),
-        description: z.string().min(1, { message: "Description is required" }),
+        rating: z.number().min(1, { message: "Vui lòng chọn số sao" }).max(5),
+        description: z
+          .string()
+          .min(1, { message: "Vui lòng nhập nội dung đánh giá" }),
       })
     )
     .mutation(async ({ input, ctx }) => {
@@ -67,7 +69,7 @@ export const reviewsRouter = createTRPCRouter({
       if (!product) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Product not found",
+          message: "Sản phẩm không tồn tại",
         });
       }
 
@@ -88,7 +90,7 @@ export const reviewsRouter = createTRPCRouter({
       if (existingReviewsData.totalDocs > 0) {
         throw new TRPCError({
           code: "BAD_REQUEST",
-          message: "You have already reviewed this product",
+          message: "Bạn đã đánh giá sản phẩm này rồi",
         });
       }
 
@@ -108,8 +110,10 @@ export const reviewsRouter = createTRPCRouter({
     .input(
       z.object({
         reviewId: z.string(),
-        rating: z.number().min(1, { message: "Rating is required" }).max(5),
-        description: z.string().min(1, { message: "Description is required" }),
+        rating: z.number().min(1, { message: "Vui lòng chọn số sao" }).max(5),
+        description: z
+          .string()
+          .min(1, { message: "Vui lòng nhập nội dung đánh giá" }),
       })
     )
     .mutation(async ({ input, ctx }) => {
@@ -122,14 +126,14 @@ export const reviewsRouter = createTRPCRouter({
       if (!existingReview) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Review not found",
+          message: "Không tìm thấy đánh giá",
         });
       }
 
       if (existingReview.user !== ctx.session.user.id) {
         throw new TRPCError({
           code: "FORBIDDEN",
-          message: "You are not allowed to update this review",
+          message: "Bạn không có quyền chỉnh sửa đánh giá này",
         });
       }
 

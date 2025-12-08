@@ -28,7 +28,7 @@ export const productsRouter = createTRPCRouter({
       if (product.isArchived) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Product not found",
+          message: "Sản phẩm không tồn tại",
         });
       }
 

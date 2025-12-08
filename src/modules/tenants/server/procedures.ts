@@ -28,7 +28,10 @@ export const tenantsRouter = createTRPCRouter({
       const tenant = tenantsData.docs[0];
 
       if (!tenant) {
-        throw new TRPCError({ code: "NOT_FOUND", message: "Tenant not found" });
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Không tìm thấy nhà cung cấp",
+        });
       }
 
       return tenant as Tenant & { image: Media | null };

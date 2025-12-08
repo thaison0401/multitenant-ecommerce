@@ -38,7 +38,7 @@ export const libraryRouter = createTRPCRouter({
       if (!order) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Order not found",
+          message: "Đơn hàng không tồn tại",
         });
       }
 
@@ -50,7 +50,7 @@ export const libraryRouter = createTRPCRouter({
       if (!product) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Product not found",
+          message: "Sản phẩm không tồn tại",
         });
       }
 

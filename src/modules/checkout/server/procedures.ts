@@ -26,7 +26,7 @@ export const checkoutRouter = createTRPCRouter({
     if (!user) {
       throw new TRPCError({
         code: "NOT_FOUND",
-        message: "User not found",
+        message: "Không tìm thấy người dùng",
       });
     }
 
@@ -39,7 +39,7 @@ export const checkoutRouter = createTRPCRouter({
     if (!tenant) {
       throw new TRPCError({
         code: "NOT_FOUND",
-        message: "Tenant not found",
+        message: "Không tìm thấy nhà cung cấp",
       });
     }
 
@@ -53,7 +53,7 @@ export const checkoutRouter = createTRPCRouter({
     if (!accountLink.url) {
       throw new TRPCError({
         code: "BAD_REQUEST",
-        message: "Failed to create verification link",
+        message: "Không thể tạo liên kết xác minh tài khoản",
       });
     }
 
@@ -95,7 +95,7 @@ export const checkoutRouter = createTRPCRouter({
       if (products.totalDocs !== input.productIds.length) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Product not found",
+          message: "Sản phẩm không tồn tại",
         });
       }
 
@@ -122,7 +122,8 @@ export const checkoutRouter = createTRPCRouter({
       if (!tenant.stripeDetailsSubmitted) {
         throw new TRPCError({
           code: "BAD_REQUEST",
-          message: "Tenant not allowed to sell products",
+          message:
+            "Vui lòng xác minh tài khoản để được phép bán hoặc mua sản phẩm!",
         });
       }
 
@@ -170,6 +171,7 @@ export const checkoutRouter = createTRPCRouter({
           payment_intent_data: {
             application_fee_amount: platformFeeAmount,
           },
+          locale: "vi", // Trang checkouut sử dụng ngôn ngữ tiếng Việt
         },
         {
           stripeAccount: tenant.stripeAccountId,
@@ -179,7 +181,7 @@ export const checkoutRouter = createTRPCRouter({
       if (!checkout.url) {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to create checkout session",
+          message: "Tạo phiên thanh toán không thành công",
         });
       }
 
@@ -215,7 +217,7 @@ export const checkoutRouter = createTRPCRouter({
       if (data.totalDocs !== input.ids.length) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Products not found",
+          message: "Sản phẩm không tồn tại",
         });
       }
 
