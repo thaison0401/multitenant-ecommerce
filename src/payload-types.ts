@@ -198,7 +198,7 @@ export interface Media {
   id: string;
   tenant?: (string | null) | Tenant;
   /**
-   * Mô tả ngắn gọn nội dung hình ảnh.
+   * Mô tả ngắn gọn nội dung hình ảnh hoặc tên file.
    */
   alt: string;
   updatedAt: string;

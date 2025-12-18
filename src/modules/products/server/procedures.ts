@@ -266,6 +266,7 @@ export const productsRouter = createTRPCRouter({
         docs: dataWithSummarizedReviews.map((doc) => ({
           ...doc,
           image: doc.image as Media | null,
+          cover: doc.cover as Media | null,
           tenant: doc.tenant as Tenant & { image: Media | null },
         })),
       };

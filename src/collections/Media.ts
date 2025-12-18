@@ -4,8 +4,8 @@ import type { CollectionConfig } from "payload";
 export const Media: CollectionConfig = {
   slug: "media",
   labels: {
-    singular: "Thư viện ảnh",
-    plural: "Thư viện ảnh",
+    singular: "Quản lý File & Ảnh",
+    plural: "Quản lý File & Ảnh",
   },
   access: {
     read: () => true,
@@ -21,7 +21,7 @@ export const Media: CollectionConfig = {
       required: true,
       label: "Văn bản thay thế",
       admin: {
-        description: "Mô tả ngắn gọn nội dung hình ảnh.",
+        description: "Mô tả ngắn gọn nội dung hình ảnh hoặc tên file.",
       },
     },
   ],
