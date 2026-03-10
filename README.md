@@ -17,7 +17,7 @@ A modern <b>full-stack multi-vendor marketplace</b> built with <b>Next.js 14</b>
 
 ## 🚀 Live Demo
 
-🌐 **[Visit Digital Marketplace](https://multitenant-ecommerce-pearl.vercel.app/)**
+🌐 **[E-commerce Multi Vendor Website](https://multitenant-ecommerce-pearl.vercel.app/)**
 
 ---
 
@@ -38,7 +38,6 @@ The architecture is inspired by real-world platforms such as:
 
 - Amazon  
 - Shopee  
-- Etsy  
 
 ---
 
