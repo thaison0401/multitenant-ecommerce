@@ -1,72 +1,237 @@
-<h1 align="center">🛒 Next.js Multi-Vendor E-commerce Architecture</h1>
+# 🛒 Multi-Tenant E-Commerce Platform
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js_14-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React_Server_Components-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="RSC" />
-  <img src="https://img.shields.io/badge/Payload_CMS-000000?style=for-the-badge&logo=payload&logoColor=white" alt="Payload CMS" />
-  <img src="https://img.shields.io/badge/tRPC-2596BE?style=for-the-badge&logo=trpc&logoColor=white" alt="tRPC" />
-  <img src="https://img.shields.io/badge/Stripe_Connect-008CDD?style=for-the-badge&logo=stripe&logoColor=white" alt="Stripe" />
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-</p>
+![Next.js](https://img.shields.io/badge/Next.js-14-black)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
+![Stripe](https://img.shields.io/badge/Stripe-Payment-blue)
+![License](https://img.shields.io/badge/license-MIT-yellow)
 
-<p align="center">
-  <strong>A production-ready, multi-tenant marketplace built with modern web technologies.</strong>
-</p>
+A modern **multi-vendor marketplace platform** built with **Next.js, Payload CMS, MongoDB, and Stripe Connect**.
 
-## 🌟 Tầm nhìn dự án (System Overview)
-
-Đây không phải là một website bán hàng đơn thuần. Dự án này là một **Hệ sinh thái Multi-Vendor Marketplace** hoàn chỉnh, nơi nhiều nhà bán hàng (Vendors) có thể hoạt động độc lập trên cùng một nền tảng. 
-
-Hệ thống được thiết kế để giải quyết các bài toán kiến trúc phức tạp trong môi trường thực tế, bao gồm: **Multi-tenancy** (tách biệt dữ liệu vendor một cách an toàn), **Automated Revenue Splitting** (phân chia doanh thu tự động qua Stripe) và kiến trúc **Headless CMS**.
-
-🚀 **Live Demo:** [https://multitenant-ecommerce-pearl.vercel.app/](https://multitenant-ecommerce-pearl.vercel.app/)
+This system allows multiple vendors to sell products on the same platform while administrators manage the marketplace centrally.  
+The architecture is inspired by real-world platforms like **Amazon, Shopee, and Etsy**.
 
 ---
 
-## 🏗️ Kiến trúc & Công nghệ (Modern Tech Stack)
+# 🚀 Live Demo
 
-Dự án áp dụng chặt chẽ các xu hướng công nghệ của năm 2024 - 2025, tận dụng tối đa Server-Side Rendering (SSR), Server Actions và đảm bảo tính an toàn kiểu dữ liệu (Type-safety) từ đầu đến cuối.
+Coming soon / Deploy on Vercel
 
-### 🎨 Frontend
-- **Framework:** Next.js 14 (App Router) kết hợp React Server Components.
-- **UI/UX:** TailwindCSS & Shadcn UI cho giao diện đồng nhất, dễ mở rộng.
+Example:
 
-### ⚙️ Backend & Database
-- **Headless CMS:** Payload CMS - Cung cấp khả năng quản lý nội dung mạnh mẽ và tự động sinh API.
-- **API Layer:** tRPC - Giao tiếp Client-Server hoàn toàn Type-Safe, loại bỏ rủi ro sai lệch dữ liệu.
-- **Database:** MongoDB - Linh hoạt trong việc lưu trữ dữ liệu phức tạp của mô hình sàn thương mại.
 
-### 💳 Payment & Deployment
-- **Payment Gateway:** Stripe Connect - Xử lý luồng thanh toán phức tạp (Split Payment).
-- **Deployment:** Vercel - CI/CD tự động, tối ưu hóa tối đa cho hệ sinh thái Next.js.
+https://your-project.vercel.app
+
 
 ---
 
-## 🔥 Tính năng cốt lõi theo phân quyền (Features by Actor)
+# ✨ Core Features
 
-Hệ thống phân quyền chặt chẽ với 4 nhóm Actor chính (Guest, Customer, Vendor, Admin), đảm bảo luồng nghiệp vụ (Activity) và Use Case chuẩn xác:
+## 👤 Customer
 
-### 🛍️ 1. Customer (Khách hàng)
-- Tìm kiếm & Lọc sản phẩm nâng cao (Search + Filter).
-- Trải nghiệm giỏ hàng mượt mà (Cart Management).
-- Thanh toán an toàn qua cổng Stripe.
-- Theo dõi lịch sử đơn hàng đã mua (Order History).
-
-### 🏪 2. Vendor (Nhà bán hàng)
-- **Vendor Dashboard:** Bảng điều khiển quản trị riêng biệt, độc lập dữ liệu.
-- Quản lý danh mục và sản phẩm của riêng shop mình.
-- Theo dõi và xử lý đơn hàng chi tiết.
-- Kết nối tài khoản **Stripe Connect** để nhận phần chia doanh thu tự động.
-
-### 👑 3. Admin (Quản trị viên nền tảng)
-- Quản lý tập trung toàn bộ hệ thống Users.
-- Quản lý và kiểm duyệt các Vendors.
-- Quản lý toàn bộ danh sách Sản phẩm trên sàn.
+- Browse products from multiple vendors
+- Search and filter products
+- Add products to cart
+- Secure checkout with Stripe
+- View order history
 
 ---
 
-## 📊 Nền tảng thiết kế (System Design)
+## 🏪 Vendor
 
-Dự án được xây dựng dựa trên các bản thiết kế hệ thống tiêu chuẩn:
-- **ERD (Entity-Relationship Diagram):** Kiến trúc CSDL đáp ứng tốt bài toán Multi-vendor.
-- **Use Case & Activity Diagrams:** Chuẩn hóa luồng đi của người dùng từ khi vào trang đến khi thanh toán thành công và tiền được chia về ví Vendor.
+- Vendor dashboard
+- Add / edit / delete products
+- Manage product listings
+- Track orders and sales
+- Connect Stripe account for payouts
+
+---
+
+## 🛠 Admin
+
+- Manage users and vendors
+- Manage product listings
+- Control marketplace data
+- Monitor system activity
+
+---
+
+# 🧠 Key Concepts
+
+This project demonstrates several modern web development concepts:
+
+### Multi-Tenant Architecture
+
+Each vendor can manage their own products independently within the same system.
+
+### Headless CMS
+
+Payload CMS is used to manage backend logic and content.
+
+### Stripe Connect Integration
+
+Supports automatic revenue splitting between platform and vendors.
+
+### Modern React Architecture
+
+- Next.js App Router
+- React Server Components
+- API with tRPC
+
+---
+
+# 🏗 System Architecture
+
+
+Client (Browser)
+│
+▼
+Next.js Frontend
+│
+▼
+tRPC API
+│
+▼
+Payload CMS
+│
+▼
+MongoDB
+
+
+Payment Flow
+
+
+Customer → Stripe Checkout → Stripe Connect → Vendor Payout
+
+
+---
+
+# 🧰 Tech Stack
+
+### Frontend
+
+- Next.js
+- React
+- TailwindCSS
+- Shadcn UI
+
+### Backend
+
+- Payload CMS
+- tRPC API
+
+### Database
+
+- MongoDB
+
+### Payment
+
+- Stripe
+- Stripe Connect
+
+### Deployment
+
+- Vercel
+
+---
+
+# 📸 Screenshots
+
+You can add screenshots inside a `/screenshots` folder.
+
+Example:
+
+
+screenshots/home.png
+screenshots/product.png
+screenshots/dashboard.png
+
+
+Then display them here.
+
+Example:
+
+
+
+
+
+
+
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/thaison0401/multitenant-ecommerce.git
+cd multitenant-ecommerce
+
+Install dependencies
+
+npm install
+
+Create environment variables
+
+.env.local
+
+Example:
+
+MONGODB_URI=
+PAYLOAD_SECRET=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+NEXT_PUBLIC_SERVER_URL=
+
+Run development server
+
+npm run dev
+
+Open in browser
+
+http://localhost:3000
+📂 Project Structure
+multitenant-ecommerce
+│
+├── app
+├── components
+├── collections
+├── lib
+├── utils
+├── public
+├── styles
+└── payload
+🔐 Security Features
+
+Secure payment processing using Stripe
+
+Authentication and authorization
+
+Server-side validation
+
+Role-based access control
+
+📈 Future Improvements
+
+Possible future upgrades:
+
+Product reviews and ratings
+
+Vendor analytics dashboard
+
+Real-time notifications
+
+Chat between buyers and vendors
+
+Recommendation system
+
+Microservices architecture
+
+👨‍💻 Author
+
+Tran Thai Son
+
+IT Student – Software Engineering
+
+GitHub
+https://github.com/thaison0401
