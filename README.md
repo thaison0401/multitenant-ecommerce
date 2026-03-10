@@ -189,19 +189,13 @@ cd multitenant-ecommerce
 ### 3️⃣ Install dependencies
 
 ```bash
+bun install
+```
+
+or
+
+```bash
 npm install
-```
-
-or
-
-```bash
-yarn install
-```
-
-or
-
-```bash
-pnpm install
 ```
 
 ---
@@ -221,6 +215,7 @@ MONGODB_URI=your_mongodb_connection_string
 PAYLOAD_SECRET=your_payload_secret_key
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
+BLOB_READ_WRITE_TOKEN="vercel_blob_...
 NEXT_PUBLIC_SERVER_URL=http://localhost:3000
 ```
 
