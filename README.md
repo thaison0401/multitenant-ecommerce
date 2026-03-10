@@ -5,28 +5,27 @@ A modern full-stack multi-vendor marketplace built with <b>Next.js 14</b>, <b>Pa
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" />
-  <img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe" />
-  <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb" />
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge" alt="Payload CMS" />
+  <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge" alt="tRPC" />
+  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe" alt="Stripe Connect" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb" alt="MongoDB" />
 </p>
 
 ---
 
-# 🚀 Live Demo
+## 🚀 Live Demo
 
-🌐 https://multitenant-ecommerce-pearl.vercel.app/
+🌐 **[Visit Digital Marketplace Live](https://multitenant-ecommerce-pearl.vercel.app/)**
 
 ---
 
-# ⭐ Project Highlights
+## ⭐ Project Highlights
 
 This project demonstrates how to build a **production-ready multi-vendor marketplace** with modern web technologies.
 
 Key architectural concepts implemented:
-
 - **Multi-Tenant Marketplace Architecture**
 - **Stripe Connect Revenue Splitting**
 - **Headless CMS architecture**
@@ -35,32 +34,30 @@ Key architectural concepts implemented:
 - **Role-based access control**
 
 The architecture is inspired by real platforms such as:
-
 - Amazon
 - Shopee
 - Etsy
 
 ---
 
-# 🧠 System Overview
+## 🧠 System Overview
 
 Unlike a traditional e-commerce website, this system allows **multiple independent vendors** to operate within a single platform.
 
 Each vendor can:
+- Manage their own products
+- Track their own orders
+- Receive payments automatically
 
-- manage their own products
-- track their own orders
-- receive payments automatically
-
-while the **platform admin maintains full control of the ecosystem**.
+While the **platform admin maintains full control of the ecosystem**.
 
 ---
 
-# 🏗 System Architecture
+## 🏗 System Architecture
 
 The platform follows a modern full-stack architecture optimized for scalability.
 
-
+```text
 Client (Browser)
 │
 ▼
@@ -74,213 +71,157 @@ Payload CMS
 │
 ▼
 MongoDB
-
-
-### Payment Flow
-
-
+Payment Flow
+Plaintext
 Customer → Stripe Checkout → Stripe Connect → Vendor Payout
-
-
 Stripe automatically splits the payment between:
 
-- the **platform**
-- the **vendor**
+The platform
 
----
+The vendor
 
-# 🧰 Tech Stack
+🧰 Tech Stack
+Frontend
 
-## Frontend
+Next.js 14 (App Router)
 
-- Next.js 14 (App Router)
-- React Server Components
-- TailwindCSS
-- Shadcn UI
+React Server Components
 
-## Backend
+TailwindCSS
 
-- Payload CMS
-- tRPC API
+Shadcn UI
 
-## Database
+Backend
 
-- MongoDB
+Payload CMS
 
-## Payment
+tRPC API
 
-- Stripe
-- Stripe Connect
+Database
 
-## Deployment
+MongoDB
 
-- Vercel
+Payment
 
----
+Stripe
 
-# 🔥 Features
+Stripe Connect
 
-## 🛍 Customer
+Deployment
 
+Vercel
+
+🔥 Features
+🛍 Customer
 Customers can:
 
-- browse products from multiple vendors
-- search and filter products
-- manage shopping cart
-- checkout securely using Stripe
-- view order history
+Browse products from multiple vendors
 
----
+Search and filter products
 
-## 🏪 Vendor
+Manage shopping cart
 
-Each vendor operates independently on the platform.
+Checkout securely using Stripe
 
-Features include:
+View order history
 
-- Vendor dashboard
-- Product management
-- Order tracking
-- Revenue monitoring
-- Stripe payout integration
+🏪 Vendor
+Each vendor operates independently on the platform. Features include:
 
----
+Vendor dashboard
 
-## 👑 Admin
+Product management
 
+Order tracking
+
+Revenue monitoring
+
+Stripe payout integration
+
+👑 Admin
 Platform administrators can:
 
-- manage users
-- approve vendors
-- monitor products
-- maintain marketplace integrity
+Manage users
 
----
+Approve vendors
 
-# 📸 Screenshots
+Monitor products
 
-Create a folder:
+Maintain marketplace integrity
 
+📸 Screenshots
+(Add your screenshots here by replacing the image paths)
 
-/screenshots
+⚙️ Installation
+1. Clone the repository
 
+Bash
+git clone [https://github.com/thaison0401/multitenant-ecommerce.git](https://github.com/thaison0401/multitenant-ecommerce.git)
+2. Go to project directory
 
-Example structure:
-
-
-screenshots/
-├── homepage.png
-├── product-page.png
-└── vendor-dashboard.png
-
-
-Then display them:
-
-
-
----
-
-# ⚙️ Installation
-
-Clone the repository
-
-
-git clone https://github.com/thaison0401/multitenant-ecommerce.git
-
-
-Go to project directory
-
-
+Bash
 cd multitenant-ecommerce
+3. Install dependencies
 
-
-Install dependencies
-
-
+Bash
 npm install
+# or yarn install / pnpm install
+4. Create environment variables
+Create a .env or .env.local file in the root directory:
 
+Đoạn mã
+MONGODB_URI=your_mongodb_connection_string
+PAYLOAD_SECRET=your_payload_secret_key
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+5. Run development server
 
-Create environment variables
-
-
-.env.local
-
-
-Example:
-
-
-MONGODB_URI=
-PAYLOAD_SECRET=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_SERVER_URL=
-
-
-Run development server
-
-
+Bash
 npm run dev
+Open browser at http://localhost:3000
 
+📂 Project Structure
+Plaintext
+multitenant-ecommerce/
+├── app/          # Next.js App Router (Frontend)
+├── components/   # React components & Shadcn UI
+├── collections/  # Payload CMS database schemas
+├── lib/          # Utility functions and configurations
+├── public/       # Static assets
+└── trpc/         # Type-safe API routers
+🔐 Security Features
+Secure Stripe payment processing
 
-Open browser
+Authentication and authorization
 
+Role-based access control
 
-http://localhost:3000
+Server-side validation
 
-
----
-
-# 📂 Project Structure
-
-
-multitenant-ecommerce
-│
-├── app
-├── components
-├── collections
-├── lib
-├── utils
-├── public
-├── styles
-└── payload
-
-
----
-
-# 🔐 Security Features
-
-- Secure Stripe payment processing
-- Authentication and authorization
-- Role-based access control
-- Server-side validation
-
----
-
-# 📈 Future Improvements
-
+📈 Future Improvements
 Potential upgrades:
 
-- Product reviews & ratings
-- Vendor analytics dashboard
-- Real-time notifications
-- Chat between buyer and vendor
-- AI recommendation system
-- Microservices architecture
+Product reviews & ratings
 
----
+Vendor analytics dashboard
 
-# 👨‍💻 Author
+Real-time notifications
 
-**Tran Thai Son**
+Chat between buyer and vendor
 
-Information Technology Student  
-Passionate about **Full-Stack Development and System Architecture**
+AI recommendation system
 
-GitHub  
-https://github.com/thaison0401
+Microservices architecture
 
----
+👨‍💻 Author
+Tran Thai Son 🎓 Information Technology Student @ UTH
 
-# ⭐ Support
+💻 Passionate about Full-Stack Development and System Architecture
 
-If you like this project, consider giving it a **star ⭐ on GitHub**.
+GitHub: thaison0401
+
+LinkedIn: (Thêm link LinkedIn của bạn vào đây)
+
+⭐ Support
+If you like this project, consider giving it a star ⭐ on GitHub.
