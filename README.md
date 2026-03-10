@@ -1,66 +1,66 @@
 <h1 align="center">🛒 Multi-Tenant Marketplace Platform</h1>
 
 <p align="center">
-A modern full-stack multi-vendor marketplace built with <b>Next.js 14</b>, <b>Payload CMS</b>, and <b>Stripe Connect</b>.
+A modern <b>full-stack multi-vendor marketplace</b> built with <b>Next.js 14</b>, <b>Payload CMS</b>, and <b>Stripe Connect</b>.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" />
-  <img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe" />
-  <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb" />
+<img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js"/>
+<img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react"/>
+<img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe"/>
+<img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb"/>
 </p>
 
 ---
 
-# 🚀 Live Demo
+## 🚀 Live Demo
 
-🌐 https://multitenant-ecommerce-pearl.vercel.app/
+🌐 **[Visit Digital Marketplace](https://multitenant-ecommerce-pearl.vercel.app/)**
 
 ---
 
-# ⭐ Project Highlights
+## ⭐ Project Highlights
 
 This project demonstrates how to build a **production-ready multi-vendor marketplace** using modern web technologies.
 
 Key architectural concepts implemented:
 
-- Multi-Tenant Marketplace Architecture
-- Stripe Connect Revenue Splitting
-- Headless CMS architecture
-- Type-safe APIs using tRPC
-- Server-Side Rendering with Next.js
-- Role-based access control
+- **Multi-Tenant Marketplace Architecture**
+- **Stripe Connect Revenue Splitting**
+- **Headless CMS architecture**
+- **Type-Safe APIs using tRPC**
+- **Server-Side Rendering with Next.js**
+- **Role-Based Access Control**
 
 The architecture is inspired by real-world platforms such as:
 
-- Amazon
-- Shopee
-- Etsy
+- Amazon  
+- Shopee  
+- Etsy  
 
 ---
 
-# 🧠 System Overview
+## 🧠 System Overview
 
-Unlike a traditional e-commerce website, this system allows **multiple independent vendors** to operate within the same platform.
+Unlike traditional e-commerce websites, this system allows **multiple independent vendors** to operate within the same platform.
 
 Each vendor can:
 
-- manage their own products
-- track their own orders
-- receive payments automatically
+- Manage their own products
+- Track their own orders
+- Receive payments automatically
 
-while the **platform administrator maintains full control of the ecosystem**.
+Meanwhile, the **platform administrator maintains full control of the marketplace ecosystem**.
 
 ---
 
-# 🏗 System Architecture
+## 🏗 System Architecture
 
 The platform follows a modern full-stack architecture optimized for scalability.
 
-```
+```text
 Client (Browser)
         │
         ▼
@@ -78,63 +78,63 @@ Client (Browser)
 
 ### Payment Flow
 
-```
+```text
 Customer → Stripe Checkout → Stripe Connect → Vendor Payout
 ```
 
 Stripe automatically splits the payment between:
 
-- the platform
-- the vendor
+- Platform fee
+- Vendor payout
 
 ---
 
-# 🧰 Tech Stack
+## 🧰 Tech Stack
 
-## Frontend
+### Frontend
 
 - Next.js 14 (App Router)
 - React Server Components
 - TailwindCSS
 - Shadcn UI
 
-## Backend
+### Backend
 
 - Payload CMS
 - tRPC API
 
-## Database
+### Database
 
 - MongoDB
 
-## Payment
+### Payment
 
 - Stripe
 - Stripe Connect
 
-## Deployment
+### Deployment
 
 - Vercel
 
 ---
 
-# 🔥 Features
+## 🔥 Features
 
-## 🛍 Customer
+### 🛍 Customer
 
 Customers can:
 
-- browse products from multiple vendors
-- search and filter products
-- manage shopping cart
-- checkout securely using Stripe
-- view order history
+- Browse products from multiple vendors
+- Search and filter products
+- Manage shopping cart
+- Checkout securely using Stripe
+- View order history
 
 ---
 
-## 🏪 Vendor
+### 🏪 Vendor
 
-Each vendor operates independently on the platform.
+Each vendor operates independently within the platform.
 
 Features include:
 
@@ -146,89 +146,94 @@ Features include:
 
 ---
 
-## 👑 Admin
+### 👑 Admin
 
 Platform administrators can:
 
-- manage users
-- approve vendors
-- monitor products
-- maintain marketplace integrity
+- Manage users
+- Approve vendors
+- Monitor products
+- Maintain marketplace integrity
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
-Create a folder inside the repository:
+<!--
+Add screenshots here when available.
 
-```
-/screenshots
-```
+Example:
 
-Example structure:
-
-```
-screenshots/
- ├── homepage.png
- ├── product-page.png
- └── vendor-dashboard.png
-```
-
-Display screenshots in README:
-
-```
 ![Homepage](./screenshots/homepage.png)
 
 ![Product Page](./screenshots/product-page.png)
 
 ![Vendor Dashboard](./screenshots/vendor-dashboard.png)
+-->
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone repository
+
+```bash
+git clone https://github.com/thaison0401/multitenant-ecommerce.git
+```
+
+### 2️⃣ Navigate to project directory
+
+```bash
+cd multitenant-ecommerce
+```
+
+### 3️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+or
+
+```bash
+pnpm install
 ```
 
 ---
 
-# ⚙️ Installation
+### 4️⃣ Configure environment variables
 
-Clone the repository
-
-```
-git clone https://github.com/thaison0401/multitenant-ecommerce.git
-```
-
-Navigate to project directory
-
-```
-cd multitenant-ecommerce
-```
-
-Install dependencies
-
-```
-npm install
-```
-
-Create environment variables
+Create a file:
 
 ```
 .env.local
 ```
 
-Example configuration
+Example configuration:
 
-```
-MONGODB_URI=
-PAYLOAD_SECRET=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_SERVER_URL=
+```env
+MONGODB_URI=your_mongodb_connection_string
+PAYLOAD_SECRET=your_payload_secret_key
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
 ```
 
-Run development server
+---
 
-```
+### 5️⃣ Run development server
+
+```bash
 npm run dev
 ```
 
-Open the application
+Open browser:
 
 ```
 http://localhost:3000
@@ -236,24 +241,23 @@ http://localhost:3000
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
-```
-multitenant-ecommerce
+```text
+multitenant-ecommerce/
 │
-├── app
-├── components
-├── collections
-├── lib
-├── utils
-├── public
-├── styles
-└── payload
+├── app/          # Next.js App Router
+├── components/   # React components
+├── collections/  # Payload CMS schemas
+├── lib/          # Utility functions
+├── public/       # Static assets
+├── styles/       # CSS styles
+└── trpc/         # Type-safe API routers
 ```
 
 ---
 
-# 🔐 Security Features
+## 🔐 Security Features
 
 - Secure Stripe payment integration
 - Authentication and authorization
@@ -262,31 +266,32 @@ multitenant-ecommerce
 
 ---
 
-# 📈 Future Improvements
+## 📈 Future Improvements
 
-Potential future upgrades:
+Potential upgrades for the platform:
 
-- Product reviews & ratings
+- Product reviews and ratings
 - Vendor analytics dashboard
 - Real-time notifications
-- Chat system between buyer and vendor
+- Chat between buyers and vendors
 - AI product recommendation
 - Microservices architecture
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Tran Thai Son**
 
-Information Technology Student  
-Passionate about **Full-Stack Development and System Architecture**
+🎓 Information Technology Student  
+
+💻 Interested in **Full-Stack Development, System Architecture, and Scalable Web Applications**
 
 GitHub  
-https://github.com/thaison0401
+👉 **[https://github.com/thaison0401](https://github.com/thaison0401)**
 
 ---
 
-# ⭐ Support
+## ⭐ Support
 
 If you like this project, consider giving it a **star ⭐ on GitHub**.
