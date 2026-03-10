@@ -5,223 +5,288 @@ A modern full-stack multi-vendor marketplace built with <b>Next.js 14</b>, <b>Pa
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react" alt="React" />
-  <img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge" alt="Payload CMS" />
-  <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge" alt="tRPC" />
-  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe" alt="Stripe Connect" />
-  <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" />
+  <img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb" />
 </p>
 
 ---
 
-## 🚀 Live Demo
+# 🚀 Live Demo
 
-🌐 **[Visit Digital Marketplace Live](https://multitenant-ecommerce-pearl.vercel.app/)**
+🌐 https://multitenant-ecommerce-pearl.vercel.app/
 
 ---
 
-## ⭐ Project Highlights
+# ⭐ Project Highlights
 
-This project demonstrates how to build a **production-ready multi-vendor marketplace** with modern web technologies.
+This project demonstrates how to build a **production-ready multi-vendor marketplace** using modern web technologies.
 
 Key architectural concepts implemented:
-- **Multi-Tenant Marketplace Architecture**
-- **Stripe Connect Revenue Splitting**
-- **Headless CMS architecture**
-- **Type-Safe APIs using tRPC**
-- **Server-Side Rendering with Next.js**
-- **Role-based access control**
 
-The architecture is inspired by real platforms such as:
+- Multi-Tenant Marketplace Architecture
+- Stripe Connect Revenue Splitting
+- Headless CMS architecture
+- Type-safe APIs using tRPC
+- Server-Side Rendering with Next.js
+- Role-based access control
+
+The architecture is inspired by real-world platforms such as:
+
 - Amazon
 - Shopee
 - Etsy
 
 ---
 
-## 🧠 System Overview
+# 🧠 System Overview
 
-Unlike a traditional e-commerce website, this system allows **multiple independent vendors** to operate within a single platform.
+Unlike a traditional e-commerce website, this system allows **multiple independent vendors** to operate within the same platform.
 
 Each vendor can:
-- Manage their own products
-- Track their own orders
-- Receive payments automatically
 
-While the **platform admin maintains full control of the ecosystem**.
+- manage their own products
+- track their own orders
+- receive payments automatically
+
+while the **platform administrator maintains full control of the ecosystem**.
 
 ---
 
-## 🏗 System Architecture
+# 🏗 System Architecture
 
 The platform follows a modern full-stack architecture optimized for scalability.
 
-```text
+```
 Client (Browser)
-│
-▼
-Next.js Frontend
-│
-▼
-tRPC API
-│
-▼
-Payload CMS
-│
-▼
-MongoDB
-Payment Flow
-Plaintext
+        │
+        ▼
+   Next.js Frontend
+        │
+        ▼
+       tRPC API
+        │
+        ▼
+     Payload CMS
+        │
+        ▼
+      MongoDB
+```
+
+### Payment Flow
+
+```
 Customer → Stripe Checkout → Stripe Connect → Vendor Payout
+```
+
 Stripe automatically splits the payment between:
 
-The platform
+- the platform
+- the vendor
 
-The vendor
+---
 
-🧰 Tech Stack
-Frontend
+# 🧰 Tech Stack
 
-Next.js 14 (App Router)
+## Frontend
 
-React Server Components
+- Next.js 14 (App Router)
+- React Server Components
+- TailwindCSS
+- Shadcn UI
 
-TailwindCSS
+## Backend
 
-Shadcn UI
+- Payload CMS
+- tRPC API
 
-Backend
+## Database
 
-Payload CMS
+- MongoDB
 
-tRPC API
+## Payment
 
-Database
+- Stripe
+- Stripe Connect
 
-MongoDB
+## Deployment
 
-Payment
+- Vercel
 
-Stripe
+---
 
-Stripe Connect
+# 🔥 Features
 
-Deployment
+## 🛍 Customer
 
-Vercel
-
-🔥 Features
-🛍 Customer
 Customers can:
 
-Browse products from multiple vendors
+- browse products from multiple vendors
+- search and filter products
+- manage shopping cart
+- checkout securely using Stripe
+- view order history
 
-Search and filter products
+---
 
-Manage shopping cart
+## 🏪 Vendor
 
-Checkout securely using Stripe
+Each vendor operates independently on the platform.
 
-View order history
+Features include:
 
-🏪 Vendor
-Each vendor operates independently on the platform. Features include:
+- Vendor dashboard
+- Product management
+- Order tracking
+- Revenue monitoring
+- Stripe payout integration
 
-Vendor dashboard
+---
 
-Product management
+## 👑 Admin
 
-Order tracking
-
-Revenue monitoring
-
-Stripe payout integration
-
-👑 Admin
 Platform administrators can:
 
-Manage users
+- manage users
+- approve vendors
+- monitor products
+- maintain marketplace integrity
 
-Approve vendors
+---
 
-Monitor products
+# 📸 Screenshots
 
-Maintain marketplace integrity
+Create a folder inside the repository:
 
-📸 Screenshots
-(Add your screenshots here by replacing the image paths)
+```
+/screenshots
+```
 
-⚙️ Installation
-1. Clone the repository
+Example structure:
 
-Bash
-git clone [https://github.com/thaison0401/multitenant-ecommerce.git](https://github.com/thaison0401/multitenant-ecommerce.git)
-2. Go to project directory
+```
+screenshots/
+ ├── homepage.png
+ ├── product-page.png
+ └── vendor-dashboard.png
+```
 
-Bash
+Display screenshots in README:
+
+```
+![Homepage](./screenshots/homepage.png)
+
+![Product Page](./screenshots/product-page.png)
+
+![Vendor Dashboard](./screenshots/vendor-dashboard.png)
+```
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+```
+git clone https://github.com/thaison0401/multitenant-ecommerce.git
+```
+
+Navigate to project directory
+
+```
 cd multitenant-ecommerce
-3. Install dependencies
+```
 
-Bash
+Install dependencies
+
+```
 npm install
-# or yarn install / pnpm install
-4. Create environment variables
-Create a .env or .env.local file in the root directory:
+```
 
-Đoạn mã
-MONGODB_URI=your_mongodb_connection_string
-PAYLOAD_SECRET=your_payload_secret_key
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-NEXT_PUBLIC_SERVER_URL=http://localhost:3000
-5. Run development server
+Create environment variables
 
-Bash
+```
+.env.local
+```
+
+Example configuration
+
+```
+MONGODB_URI=
+PAYLOAD_SECRET=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+NEXT_PUBLIC_SERVER_URL=
+```
+
+Run development server
+
+```
 npm run dev
-Open browser at http://localhost:3000
+```
 
-📂 Project Structure
-Plaintext
-multitenant-ecommerce/
-├── app/          # Next.js App Router (Frontend)
-├── components/   # React components & Shadcn UI
-├── collections/  # Payload CMS database schemas
-├── lib/          # Utility functions and configurations
-├── public/       # Static assets
-└── trpc/         # Type-safe API routers
-🔐 Security Features
-Secure Stripe payment processing
+Open the application
 
-Authentication and authorization
+```
+http://localhost:3000
+```
 
-Role-based access control
+---
 
-Server-side validation
+# 📂 Project Structure
 
-📈 Future Improvements
-Potential upgrades:
+```
+multitenant-ecommerce
+│
+├── app
+├── components
+├── collections
+├── lib
+├── utils
+├── public
+├── styles
+└── payload
+```
 
-Product reviews & ratings
+---
 
-Vendor analytics dashboard
+# 🔐 Security Features
 
-Real-time notifications
+- Secure Stripe payment integration
+- Authentication and authorization
+- Role-based access control
+- Server-side validation
 
-Chat between buyer and vendor
+---
 
-AI recommendation system
+# 📈 Future Improvements
 
-Microservices architecture
+Potential future upgrades:
 
-👨‍💻 Author
-Tran Thai Son 🎓 Information Technology Student @ UTH
+- Product reviews & ratings
+- Vendor analytics dashboard
+- Real-time notifications
+- Chat system between buyer and vendor
+- AI product recommendation
+- Microservices architecture
 
-💻 Passionate about Full-Stack Development and System Architecture
+---
 
-GitHub: thaison0401
+# 👨‍💻 Author
 
-LinkedIn: (Thêm link LinkedIn của bạn vào đây)
+**Tran Thai Son**
 
-⭐ Support
-If you like this project, consider giving it a star ⭐ on GitHub.
+Information Technology Student  
+Passionate about **Full-Stack Development and System Architecture**
+
+GitHub  
+https://github.com/thaison0401
+
+---
+
+# ⭐ Support
+
+If you like this project, consider giving it a **star ⭐ on GitHub**.
