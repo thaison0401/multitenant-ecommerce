@@ -1,74 +1,286 @@
-<h1 align="center">🛒 Next.js Multi-Vendor E-commerce Architecture</h1>
+<h1 align="center">🛒 Multi-Tenant Marketplace Platform</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js_14-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React_Server_Components-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="RSC" />
-  <img src="https://img.shields.io/badge/Payload_CMS-000000?style=for-the-badge&logo=payload&logoColor=white" alt="Payload CMS" />
-  <img src="https://img.shields.io/badge/tRPC-2596BE?style=for-the-badge&logo=trpc&logoColor=white" alt="tRPC" />
-  <img src="https://img.shields.io/badge/Stripe_Connect-008CDD?style=for-the-badge&logo=stripe&logoColor=white" alt="Stripe" />
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+A modern full-stack multi-vendor marketplace built with <b>Next.js 14</b>, <b>Payload CMS</b>, and <b>Stripe Connect</b>.
 </p>
 
 <p align="center">
-  <strong>A production-ready, multi-tenant marketplace built with modern web technologies.</strong>
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" />
+  <img src="https://img.shields.io/badge/React-Server_Components-20232A?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Payload-CMS-black?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb" />
 </p>
 
-## 🌟 Tầm nhìn dự án (System Overview)
+---
 
-Đây không phải là một website bán hàng đơn thuần. Dự án này là một **Hệ sinh thái Multi-Vendor Marketplace** hoàn chỉnh, nơi nhiều nhà bán hàng (Vendors) có thể hoạt động độc lập trên cùng một nền tảng. 
+# 🚀 Live Demo
 
-Hệ thống được thiết kế để giải quyết các bài toán kiến trúc phức tạp trong môi trường thực tế, bao gồm: **Multi-tenancy** (tách biệt dữ liệu vendor một cách an toàn), **Automated Revenue Splitting** (phân chia doanh thu tự động qua Stripe) và kiến trúc **Headless CMS**.
-
-🚀 **Live Demo:** [https://multitenant-ecommerce-pearl.vercel.app/](https://multitenant-ecommerce-pearl.vercel.app/)
+🌐 https://multitenant-ecommerce-pearl.vercel.app/
 
 ---
 
-## 🏗️ Kiến trúc & Công nghệ (Modern Tech Stack)
+# ⭐ Project Highlights
 
-Dự án áp dụng chặt chẽ các xu hướng công nghệ của năm 2024 - 2025, tận dụng tối đa Server-Side Rendering (SSR), Server Actions và đảm bảo tính an toàn kiểu dữ liệu (Type-safety) từ đầu đến cuối.
+This project demonstrates how to build a **production-ready multi-vendor marketplace** with modern web technologies.
 
-### 🎨 Frontend
-- **Framework:** Next.js 14 (App Router) kết hợp React Server Components.
-- **UI/UX:** TailwindCSS & Shadcn UI cho giao diện đồng nhất, dễ mở rộng.
+Key architectural concepts implemented:
 
-### ⚙️ Backend & Database
-- **Headless CMS:** Payload CMS - Cung cấp khả năng quản lý nội dung mạnh mẽ và tự động sinh API.
-- **API Layer:** tRPC - Giao tiếp Client-Server hoàn toàn Type-Safe, loại bỏ rủi ro sai lệch dữ liệu.
-- **Database:** MongoDB - Linh hoạt trong việc lưu trữ dữ liệu phức tạp của mô hình sàn thương mại.
+- **Multi-Tenant Marketplace Architecture**
+- **Stripe Connect Revenue Splitting**
+- **Headless CMS architecture**
+- **Type-Safe APIs using tRPC**
+- **Server-Side Rendering with Next.js**
+- **Role-based access control**
 
-### 💳 Payment & Deployment
-- **Payment Gateway:** Stripe Connect - Xử lý luồng thanh toán phức tạp (Split Payment).
-- **Deployment:** Vercel - CI/CD tự động, tối ưu hóa tối đa cho hệ sinh thái Next.js.
+The architecture is inspired by real platforms such as:
 
----
-
-## 🔥 Tính năng cốt lõi theo phân quyền (Features by Actor)
-
-Hệ thống phân quyền chặt chẽ với 4 nhóm Actor chính (Guest, Customer, Vendor, Admin), đảm bảo luồng nghiệp vụ (Activity) và Use Case chuẩn xác:
-
-### 🛍️ 1. Customer (Khách hàng)
-- Tìm kiếm & Lọc sản phẩm nâng cao (Search + Filter).
-- Trải nghiệm giỏ hàng mượt mà (Cart Management).
-- Thanh toán an toàn qua cổng Stripe.
-- Theo dõi lịch sử đơn hàng đã mua (Order History).
-
-### 🏪 2. Vendor (Nhà bán hàng)
-- **Vendor Dashboard:** Bảng điều khiển quản trị riêng biệt, độc lập dữ liệu.
-- Quản lý danh mục và sản phẩm của riêng shop mình.
-- Theo dõi và xử lý đơn hàng chi tiết.
-- Kết nối tài khoản **Stripe Connect** để nhận phần chia doanh thu tự động.
-
-### 👑 3. Admin (Quản trị viên nền tảng)
-- Quản lý tập trung toàn bộ hệ thống Users.
-- Quản lý và kiểm duyệt các Vendors.
-- Quản lý toàn bộ danh sách Sản phẩm trên sàn.
+- Amazon
+- Shopee
+- Etsy
 
 ---
 
-## 📊 Nền tảng thiết kế (System Design)
+# 🧠 System Overview
 
-Dự án được xây dựng dựa trên các bản thiết kế hệ thống tiêu chuẩn:
-- **ERD (Entity-Relationship Diagram):** Kiến trúc CSDL đáp ứng tốt bài toán Multi-vendor.
-- **Use Case & Activity Diagrams:** Chuẩn hóa luồng đi của người dùng từ khi vào trang đến khi thanh toán thành công và tiền được chia về ví Vendor.
+Unlike a traditional e-commerce website, this system allows **multiple independent vendors** to operate within a single platform.
+
+Each vendor can:
+
+- manage their own products
+- track their own orders
+- receive payments automatically
+
+while the **platform admin maintains full control of the ecosystem**.
 
 ---
+
+# 🏗 System Architecture
+
+The platform follows a modern full-stack architecture optimized for scalability.
+
+
+Client (Browser)
+│
+▼
+Next.js Frontend
+│
+▼
+tRPC API
+│
+▼
+Payload CMS
+│
+▼
+MongoDB
+
+
+### Payment Flow
+
+
+Customer → Stripe Checkout → Stripe Connect → Vendor Payout
+
+
+Stripe automatically splits the payment between:
+
+- the **platform**
+- the **vendor**
+
+---
+
+# 🧰 Tech Stack
+
+## Frontend
+
+- Next.js 14 (App Router)
+- React Server Components
+- TailwindCSS
+- Shadcn UI
+
+## Backend
+
+- Payload CMS
+- tRPC API
+
+## Database
+
+- MongoDB
+
+## Payment
+
+- Stripe
+- Stripe Connect
+
+## Deployment
+
+- Vercel
+
+---
+
+# 🔥 Features
+
+## 🛍 Customer
+
+Customers can:
+
+- browse products from multiple vendors
+- search and filter products
+- manage shopping cart
+- checkout securely using Stripe
+- view order history
+
+---
+
+## 🏪 Vendor
+
+Each vendor operates independently on the platform.
+
+Features include:
+
+- Vendor dashboard
+- Product management
+- Order tracking
+- Revenue monitoring
+- Stripe payout integration
+
+---
+
+## 👑 Admin
+
+Platform administrators can:
+
+- manage users
+- approve vendors
+- monitor products
+- maintain marketplace integrity
+
+---
+
+# 📸 Screenshots
+
+Create a folder:
+
+
+/screenshots
+
+
+Example structure:
+
+
+screenshots/
+├── homepage.png
+├── product-page.png
+└── vendor-dashboard.png
+
+
+Then display them:
+
+
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+
+git clone https://github.com/thaison0401/multitenant-ecommerce.git
+
+
+Go to project directory
+
+
+cd multitenant-ecommerce
+
+
+Install dependencies
+
+
+npm install
+
+
+Create environment variables
+
+
+.env.local
+
+
+Example:
+
+
+MONGODB_URI=
+PAYLOAD_SECRET=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+NEXT_PUBLIC_SERVER_URL=
+
+
+Run development server
+
+
+npm run dev
+
+
+Open browser
+
+
+http://localhost:3000
+
+
+---
+
+# 📂 Project Structure
+
+
+multitenant-ecommerce
+│
+├── app
+├── components
+├── collections
+├── lib
+├── utils
+├── public
+├── styles
+└── payload
+
+
+---
+
+# 🔐 Security Features
+
+- Secure Stripe payment processing
+- Authentication and authorization
+- Role-based access control
+- Server-side validation
+
+---
+
+# 📈 Future Improvements
+
+Potential upgrades:
+
+- Product reviews & ratings
+- Vendor analytics dashboard
+- Real-time notifications
+- Chat between buyer and vendor
+- AI recommendation system
+- Microservices architecture
+
+---
+
+# 👨‍💻 Author
+
+**Tran Thai Son**
+
+Information Technology Student  
+Passionate about **Full-Stack Development and System Architecture**
+
+GitHub  
+https://github.com/thaison0401
+
+---
+
+# ⭐ Support
+
+If you like this project, consider giving it a **star ⭐ on GitHub**.
