@@ -169,11 +169,11 @@ Add screenshots here when available.
 Example:
 
 ![Homepage](./screenshots/homepage.png)
-<img width="1887" height="909" alt="image" src="https://github.com/user-attachments/assets/b95d3c63-a3d6-4150-9edd-c0af653b513e" />
-
 ![Product Page](./screenshots/product-page.png)
 ![Vendor Dashboard](./screenshots/vendor-dashboard.png)
 -->
+<img width="1887" height="909" alt="image" src="https://github.com/user-attachments/assets/733a19ed-8ef2-436d-acd2-6f95819470c0" />
+
 
 ---
 
