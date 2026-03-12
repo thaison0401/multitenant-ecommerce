@@ -62,21 +62,21 @@ The platform follows a modern full-stack architecture optimized for scalability.
 
 ```text
 Client (Browser)
-|
-v
+   │
+   ▼
 Next.js Frontend
-|
-v
+   │
+   ▼
 tRPC API
-|
-v
+   │
+   ▼
 Payload CMS
-|
-v
+   │
+   ▼
 MongoDB
 ```
 
-### Payment Flow
+### 💳 Payment Flow
 
 ```text
 Customer → Stripe Checkout → Stripe Connect → Vendor Payout
@@ -114,7 +114,7 @@ Stripe automatically splits the payment between:
 
 ### Package Manager
 
-- **Bun**
+- Bun
 
 ### Deployment
 
@@ -134,8 +134,6 @@ Customers can:
 - Checkout securely using Stripe
 - View order history
 
----
-
 ### 🏪 Vendor
 
 Each vendor operates independently within the platform.
@@ -147,8 +145,6 @@ Features include:
 - Order tracking
 - Revenue monitoring
 - Stripe payout integration
-
----
 
 ### 👑 Admin
 
@@ -177,17 +173,25 @@ Example:
 
 ## ⚙️ Installation
 
-### 1️⃣ Clone repository
+### 1️⃣ Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18+)
+- [Bun](https://bun.sh/)
+- MongoDB Database ([MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database))
+- [Stripe Developer Account](https://stripe.com/)
+
+---
+
+### 2️⃣ Clone repository
 
 ```bash
 git clone https://github.com/thaison0401/multitenant-ecommerce.git
-```
-
-### 2️⃣ Navigate to project directory
-
-```bash
 cd multitenant-ecommerce
 ```
+
+---
 
 ### 3️⃣ Install dependencies
 
@@ -207,34 +211,62 @@ npm install
 
 ### 4️⃣ Configure environment variables
 
-Create file:
+Create a `.env.local` file in the root directory.
 
-```
-.env.local
-```
-
-Example configuration:
+Example:
 
 ```env
+# Database
 MONGODB_URI=your_mongodb_connection_string
+
+# Payload CMS
 PAYLOAD_SECRET=your_payload_secret_key
+
+# App URL
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+
+# Stripe
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
+
+# Vercel Blob Storage
 BLOB_READ_WRITE_TOKEN=vercel_blob_token
-NEXT_PUBLIC_SERVER_URL=http://localhost:3000
 ```
 
 ---
 
-### 5️⃣ Run development server
+### 5️⃣ Initialize Database (Important)
 
-Recommended:
+Generate Payload types:
+
+```bash
+bun run generate:types
+```
+
+Reset database (optional if old data exists):
+
+```bash
+bun run database:fresh
+```
+
+Seed database with initial data (admin account & categories):
+
+```bash
+bun run database:seed
+```
+
+⚠️ Note:  
+Do **not run `fresh` and `seed` simultaneously** to avoid MongoDB write conflicts.
+
+---
+
+### 6️⃣ Run development server
 
 ```bash
 bun run dev
 ```
 
-Alternative:
+or
 
 ```bash
 npm run dev
@@ -248,18 +280,37 @@ http://localhost:3000
 
 ---
 
+## 🔑 Default Admin Access
+
+After seeding the database:
+
+Admin Dashboard:
+
+```
+http://localhost:3000/admin
+```
+
+Credentials:
+
+```
+Email: admin@demo.com
+Password: demo
+```
+
+---
+
 ## 📂 Project Structure
 
 ```text
 multitenant-ecommerce/
-|
-|-- app/           Next.js App Router
-|-- components/    React components
-|-- collections/   Payload CMS schemas
-|-- lib/           Utility functions
-|-- public/        Static assets
-|-- styles/        CSS styles
-|-- trpc/          Type-safe API routers
+│
+├── app/            Next.js App Router
+├── components/     React components
+├── collections/    Payload CMS schemas
+├── lib/            Utility functions
+├── public/         Static assets
+├── styles/         CSS styles
+└── trpc/           Type-safe API routers
 ```
 
 ---
@@ -275,7 +326,7 @@ multitenant-ecommerce/
 
 ## 📈 Future Improvements
 
-Potential upgrades for the platform:
+Potential upgrades:
 
 - Product reviews and ratings
 - Vendor analytics dashboard
@@ -290,12 +341,12 @@ Potential upgrades for the platform:
 
 **Tran Thai Son**
 
-🎓 Information Technology Student
+🎓 Information Technology Student  
 
 💻 Interested in **Full-Stack Development, System Architecture, and Scalable Web Applications**
 
-GitHub  
-👉 **https://github.com/thaison0401**
+🔗 GitHub  
+[https://github.com/thaison0401](https://github.com/thaison0401)
 
 ---
 
