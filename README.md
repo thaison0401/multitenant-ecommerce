@@ -172,9 +172,6 @@ Example:
 ![Product Page](./screenshots/product-page.png)
 ![Vendor Dashboard](./screenshots/vendor-dashboard.png)
 -->
-Homepage
-<img width="1887" height="909" alt="image" src="https://github.com/user-attachments/assets/733a19ed-8ef2-436d-acd2-6f95819470c0" />
-
 
 ---
 
