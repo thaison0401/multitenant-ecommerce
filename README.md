@@ -11,6 +11,7 @@ A modern <b>full-stack multi-vendor marketplace</b> built with <b>Next.js 14</b>
 <img src="https://img.shields.io/badge/tRPC-TypeSafe_API-2596BE?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=for-the-badge&logo=stripe"/>
 <img src="https://img.shields.io/badge/MongoDB-Database-4EA94B?style=for-the-badge&logo=mongodb"/>
+<img src="https://img.shields.io/badge/Bun-Package_Manager-black?style=for-the-badge&logo=bun"/>
 </p>
 
 ---
@@ -36,8 +37,8 @@ Key architectural concepts implemented:
 
 The architecture is inspired by real-world platforms such as:
 
-- Amazon  
-- Shopee  
+- Amazon
+- Shopee
 
 ---
 
@@ -61,18 +62,18 @@ The platform follows a modern full-stack architecture optimized for scalability.
 
 ```text
 Client (Browser)
-        │
-        ▼
-   Next.js Frontend
-        │
-        ▼
-       tRPC API
-        │
-        ▼
-     Payload CMS
-        │
-        ▼
-      MongoDB
+|
+v
+Next.js Frontend
+|
+v
+tRPC API
+|
+v
+Payload CMS
+|
+v
+MongoDB
 ```
 
 ### Payment Flow
@@ -110,6 +111,10 @@ Stripe automatically splits the payment between:
 
 - Stripe
 - Stripe Connect
+
+### Package Manager
+
+- **Bun**
 
 ### Deployment
 
@@ -164,9 +169,7 @@ Add screenshots here when available.
 Example:
 
 ![Homepage](./screenshots/homepage.png)
-
 ![Product Page](./screenshots/product-page.png)
-
 ![Vendor Dashboard](./screenshots/vendor-dashboard.png)
 -->
 
@@ -188,11 +191,13 @@ cd multitenant-ecommerce
 
 ### 3️⃣ Install dependencies
 
+Recommended:
+
 ```bash
 bun install
 ```
 
-or
+Alternative:
 
 ```bash
 npm install
@@ -202,7 +207,7 @@ npm install
 
 ### 4️⃣ Configure environment variables
 
-Create a file:
+Create file:
 
 ```
 .env.local
@@ -215,13 +220,21 @@ MONGODB_URI=your_mongodb_connection_string
 PAYLOAD_SECRET=your_payload_secret_key
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
-BLOB_READ_WRITE_TOKEN="vercel_blob_...
+BLOB_READ_WRITE_TOKEN=vercel_blob_token
 NEXT_PUBLIC_SERVER_URL=http://localhost:3000
 ```
 
 ---
 
 ### 5️⃣ Run development server
+
+Recommended:
+
+```bash
+bun run dev
+```
+
+Alternative:
 
 ```bash
 npm run dev
@@ -239,14 +252,14 @@ http://localhost:3000
 
 ```text
 multitenant-ecommerce/
-│
-├── app/          # Next.js App Router
-├── components/   # React components
-├── collections/  # Payload CMS schemas
-├── lib/          # Utility functions
-├── public/       # Static assets
-├── styles/       # CSS styles
-└── trpc/         # Type-safe API routers
+|
+|-- app/           Next.js App Router
+|-- components/    React components
+|-- collections/   Payload CMS schemas
+|-- lib/           Utility functions
+|-- public/        Static assets
+|-- styles/        CSS styles
+|-- trpc/          Type-safe API routers
 ```
 
 ---
@@ -277,12 +290,12 @@ Potential upgrades for the platform:
 
 **Tran Thai Son**
 
-🎓 Information Technology Student  
+🎓 Information Technology Student
 
 💻 Interested in **Full-Stack Development, System Architecture, and Scalable Web Applications**
 
 GitHub  
-👉 **[https://github.com/thaison0401](https://github.com/thaison0401)**
+👉 **https://github.com/thaison0401**
 
 ---
 
