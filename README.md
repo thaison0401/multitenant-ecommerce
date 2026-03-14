@@ -44,15 +44,39 @@ The architecture is inspired by real-world platforms such as:
 
 ## 🧠 System Overview
 
-Unlike traditional e-commerce websites, this system allows **multiple independent vendors** to operate within the same platform.
+Unlike traditional e-commerce websites, this system acts as a **multi-tenant marketplace platform**, allowing multiple independent creators and vendors to operate their own businesses within the same ecosystem.
 
-Each vendor can:
+---
 
-- Manage their own products
-- Track their own orders
-- Receive payments automatically
+### 🏪 For Vendors
 
-Meanwhile, the **platform administrator maintains full control of the marketplace ecosystem**.
+Each vendor is treated as an isolated tenant. They can:
+
+- Manage their own products with **rich-text descriptions and secure file attachments**
+- Operate a **dedicated storefront (subdomain-ready routing architecture)**
+- Track orders and monitor revenue through a private **Payload CMS dashboard**
+- Receive **automated payouts** directly to their bank accounts after completing **Stripe KYC onboarding**
+
+---
+
+### 🛍️ For Customers
+
+Customers enjoy a seamless unified shopping experience:
+
+- Purchase products from **multiple independent vendors**
+- Access a centralized **Purchases Library** to download digital files
+- Leave **verified ratings and written reviews** for purchased products
+
+---
+
+### 👑 For Platform Administrators
+
+The platform administrator maintains full control of the ecosystem:
+
+- Manage users, products, and vendors across the marketplace
+- Enforce **Role-Based Access Control (RBAC)**
+- Moderate vendors and maintain marketplace quality
+- Collect an **application fee (e.g., 10%)** automatically from each transaction via **Stripe Connect**
 
 ---
 
