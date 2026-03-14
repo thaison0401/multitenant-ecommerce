@@ -162,11 +162,14 @@ This architecture allows the platform to scale to **multiple independent vendors
 - React Server Components
 - TailwindCSS
 - Shadcn UI
+- TanStack Query v5 (server state management)
+- Zustand (client state management for cart)
+- Nuqs (URL state management for filters)
 
 ### Backend
 
-- Payload CMS
-- tRPC API
+- Payload CMS (Headless CMS)
+- tRPC API (End-to-end type-safe APIs)
 
 ### Database
 
@@ -175,7 +178,7 @@ This architecture allows the platform to scale to **multiple independent vendors
 ### Payment
 
 - Stripe
-- Stripe Connect
+- Stripe Connect (Marketplace payments)
 
 ### Package Manager
 
@@ -362,13 +365,20 @@ Password: demo
 ```text
 multitenant-ecommerce/
 |
-├── app/            # Next.js App Router pages
-├── components/     # Reusable React components
-├── collections/    # Payload CMS collections (schemas)
-├── lib/            # Utility functions and helpers
-├── public/         # Static assets
-├── styles/         # Global CSS styles
-└── trpc/           # Type-safe API routers
+├── app/              # Next.js App Router
+├── components/       # Shared UI components
+├── modules/
+│   ├── auth/         # Authentication logic
+│   ├── cart/         # Zustand cart store
+│   ├── products/     # Product features
+│   ├── tenants/      # Multi-tenant logic
+│   └── orders/       # Order management
+│
+├── collections/      # Payload CMS collections
+├── trpc/             # Type-safe API routers
+├── lib/              # Utilities
+├── public/           # Static assets
+└── styles/           # Global styles
 ```
 
 ---
