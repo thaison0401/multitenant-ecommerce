@@ -61,19 +61,32 @@ Meanwhile, the **platform administrator maintains full control of the marketplac
 The platform follows a modern full-stack architecture optimized for scalability.
 
 ```text
-Client (Browser)
-        |
-        v
-Next.js Frontend
-        |
-        v
-    tRPC API
-        |
-        v
-   Payload CMS
-        |
-        v
-     MongoDB
+                 ┌──────────────────────────────┐
+                 │          Client Layer        │
+                 │                              │
+                 │      Browser / React UI      │
+                 │   Shadcn UI + TailwindCSS    │
+                 │   React Query + tRPC Client  │
+                 └───────────────┬──────────────┘
+                                 │
+                                 ▼
+                 ┌──────────────────────────────┐
+                 │       Application Layer      │
+                 │                              │
+                 │           Next.js 14         │
+                 │   React Server Components    │
+                 │          tRPC Router         │
+                 │         Payload CMS          │
+                 └───────────────┬──────────────┘
+                                 │
+                                 ▼
+                 ┌──────────────────────────────┐
+                 │     Infrastructure Layer     │
+                 │                              │
+                 │           MongoDB            │
+                 │         Stripe API           │
+                 │         Vercel Blob          │
+                 └──────────────────────────────┘
 ```
 
 ---
