@@ -37,7 +37,7 @@ Key architectural concepts implemented:
 
 The architecture is inspired by real-world platforms such as:
 
-- Amazon  
+- Amazon
 - Shopee
 
 ---
@@ -56,7 +56,7 @@ Meanwhile, the **platform administrator maintains full control of the marketplac
 
 ---
 
-# 🏗 System Architecture
+## 🏗 System Architecture
 
 The platform follows a modern full-stack architecture optimized for scalability.
 
@@ -67,13 +67,13 @@ Client (Browser)
 Next.js Frontend
         |
         v
-tRPC API
+    tRPC API
         |
         v
-Payload CMS
+   Payload CMS
         |
         v
-MongoDB
+     MongoDB
 ```
 
 ---
@@ -92,7 +92,7 @@ Before a vendor can list products on the marketplace, they must complete **Strip
 
 During this process:
 
-- Vendor is redirected to **Stripe Onboarding**
+- Vendor is redirected to Stripe Onboarding
 - Stripe collects identity and banking information
 - A **Stripe Connected Account** is created for the vendor
 
@@ -135,7 +135,7 @@ Each transaction is processed as follows:
 The marketplace deducts a configurable **application fee** (for example 10%) from the order value.
 
 **Vendor Earnings**  
-The remaining balance is instantly routed to the vendor’s **isolated Stripe Connected Account**.
+The remaining balance is instantly routed to the vendor’s **Stripe Connected Account**.
 
 This architecture allows the platform to scale to **multiple independent vendors** without handling sensitive banking logic directly.
 
@@ -186,8 +186,6 @@ Customers can:
 - Checkout securely using Stripe
 - View order history
 
----
-
 ### 🏪 Vendor
 
 Each vendor operates independently within the platform.
@@ -199,8 +197,6 @@ Features include:
 - Order tracking
 - Revenue monitoring
 - Stripe payout integration
-
----
 
 ### 👑 Admin
 
@@ -227,7 +223,7 @@ Example:
 
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation
 
 ### 1️⃣ Prerequisites
 
@@ -311,7 +307,7 @@ Seed database with initial data:
 bun run database:seed
 ```
 
-⚠️ Note: Do **not run `fresh` and `seed` simultaneously** to avoid MongoDB write conflicts.
+Note: Do **not run `fresh` and `seed` simultaneously** to avoid MongoDB write conflicts.
 
 ---
 
@@ -352,7 +348,7 @@ Password: demo
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 multitenant-ecommerce/
@@ -398,8 +394,8 @@ Information Technology Student
 
 Interested in **Full-Stack Development, System Architecture, and Scalable Web Applications**
 
-GitHub  
-https://github.com/thaison0401
+🔗 GitHub  
+[https://github.com/thaison0401](https://github.com/thaison0401)
 
 ---
 
