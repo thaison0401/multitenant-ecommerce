@@ -37,7 +37,7 @@ Key architectural concepts implemented:
 
 The architecture is inspired by real-world platforms such as:
 
-- Amazon
+- Amazon  
 - Shopee
 
 ---
@@ -56,36 +56,88 @@ Meanwhile, the **platform administrator maintains full control of the marketplac
 
 ---
 
-## 🏗 System Architecture
+# 🏗 System Architecture
 
 The platform follows a modern full-stack architecture optimized for scalability.
 
 ```text
 Client (Browser)
-   │
-   ▼
+        |
+        v
 Next.js Frontend
-   │
-   ▼
+        |
+        v
 tRPC API
-   │
-   ▼
+        |
+        v
 Payload CMS
-   │
-   ▼
+        |
+        v
 MongoDB
 ```
 
-### 💳 Payment Flow
+---
+
+## 💳 Payment Flow (Stripe Connect)
+
+The platform uses **Stripe Connect** to securely process transactions between customers, the marketplace platform, and independent vendors.
+
+This architecture enables **automatic revenue splitting** and ensures vendors receive payouts directly to their own Stripe accounts.
+
+---
+
+### 1️⃣ Vendor Onboarding & Verification
+
+Before a vendor can list products on the marketplace, they must complete **Stripe Identity Verification (KYC)** through the vendor dashboard.
+
+During this process:
+
+- Vendor is redirected to **Stripe Onboarding**
+- Stripe collects identity and banking information
+- A **Stripe Connected Account** is created for the vendor
+
+This ensures compliance with financial regulations and enables vendors to receive payouts securely.
+
+---
+
+### 2️⃣ Transaction Lifecycle
+
+When a customer purchases a product, the payment process follows this lifecycle:
 
 ```text
-Customer → Stripe Checkout → Stripe Connect → Vendor Payout
+Customer Checkout
+        |
+        v
+Stripe Payment Intent Created
+        |
+        v
+Payment Confirmed
+        |
+        v
+Application Fee Deducted
+        |
+        v
+Vendor Earnings Transferred
+        |
+        v
+Stripe Payout to Vendor Bank Account
 ```
 
-Stripe automatically splits the payment between:
+---
 
-- Platform fee
-- Vendor payout
+### 3️⃣ Automated Revenue Splitting
+
+Stripe Connect automatically splits the payment **at the time of purchase**.
+
+Each transaction is processed as follows:
+
+**Application Fee (Platform Revenue)**  
+The marketplace deducts a configurable **application fee** (for example 10%) from the order value.
+
+**Vendor Earnings**  
+The remaining balance is instantly routed to the vendor’s **isolated Stripe Connected Account**.
+
+This architecture allows the platform to scale to **multiple independent vendors** without handling sensitive banking logic directly.
 
 ---
 
@@ -134,6 +186,8 @@ Customers can:
 - Checkout securely using Stripe
 - View order history
 
+---
+
 ### 🏪 Vendor
 
 Each vendor operates independently within the platform.
@@ -145,6 +199,8 @@ Features include:
 - Order tracking
 - Revenue monitoring
 - Stripe payout integration
+
+---
 
 ### 👑 Admin
 
@@ -171,16 +227,16 @@ Example:
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
 ### 1️⃣ Prerequisites
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v18+)
-- [Bun](https://bun.sh/)
-- MongoDB Database ([MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database))
-- [Stripe Developer Account](https://stripe.com/)
+- Node.js (v18+)
+- Bun
+- MongoDB Database (MongoDB Atlas recommended)
+- Stripe Developer Account
 
 ---
 
@@ -213,7 +269,7 @@ npm install
 
 Create a `.env.local` file in the root directory.
 
-Example:
+Example configuration:
 
 ```env
 # Database
@@ -235,7 +291,7 @@ BLOB_READ_WRITE_TOKEN=vercel_blob_token
 
 ---
 
-### 5️⃣ Initialize Database (Important)
+### 5️⃣ Initialize Database
 
 Generate Payload types:
 
@@ -249,14 +305,13 @@ Reset database (optional if old data exists):
 bun run database:fresh
 ```
 
-Seed database with initial data (admin account & categories):
+Seed database with initial data:
 
 ```bash
 bun run database:seed
 ```
 
-⚠️ Note:  
-Do **not run `fresh` and `seed` simultaneously** to avoid MongoDB write conflicts.
+⚠️ Note: Do **not run `fresh` and `seed` simultaneously** to avoid MongoDB write conflicts.
 
 ---
 
@@ -282,9 +337,7 @@ http://localhost:3000
 
 ## 🔑 Default Admin Access
 
-After seeding the database:
-
-Admin Dashboard:
+Admin dashboard:
 
 ```
 http://localhost:3000/admin
@@ -299,18 +352,18 @@ Password: demo
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 multitenant-ecommerce/
-│
-├── app/            Next.js App Router
-├── components/     React components
-├── collections/    Payload CMS schemas
-├── lib/            Utility functions
-├── public/         Static assets
-├── styles/         CSS styles
-└── trpc/           Type-safe API routers
+|
+├── app/            # Next.js App Router pages
+├── components/     # Reusable React components
+├── collections/    # Payload CMS collections (schemas)
+├── lib/            # Utility functions and helpers
+├── public/         # Static assets
+├── styles/         # Global CSS styles
+└── trpc/           # Type-safe API routers
 ```
 
 ---
@@ -341,12 +394,12 @@ Potential upgrades:
 
 **Tran Thai Son**
 
-🎓 Information Technology Student  
+Information Technology Student
 
-💻 Interested in **Full-Stack Development, System Architecture, and Scalable Web Applications**
+Interested in **Full-Stack Development, System Architecture, and Scalable Web Applications**
 
-🔗 GitHub  
-[https://github.com/thaison0401](https://github.com/thaison0401)
+GitHub  
+https://github.com/thaison0401
 
 ---
 
