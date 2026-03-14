@@ -190,35 +190,31 @@ This architecture allows the platform to scale to **multiple independent vendors
 ## 🔥 Features
 
 ### 🛍 Customer
+Customers enjoy a smooth multi-vendor shopping experience:
+- **Browse & Search** products from multiple vendors
+- **Advanced Filters** by category, price, and tags
+- **Shopping Cart & Secure Checkout** via Stripe
+- **Purchase Library** to access bought products
+- **Ratings & Reviews** for purchased items
 
-Customers can:
-
-- Browse products from multiple vendors
-- Search and filter products
-- Manage shopping cart
-- Checkout securely using Stripe
-- View order history
+---
 
 ### 🏪 Vendor
+Each vendor operates in an **isolated multi-tenant environment**:
+- **Branded Storefront** with unique routing
+- **Vendor Dashboard** powered by Payload CMS
+- **Product Management** (create, edit, upload files)
+- **Order & Revenue Tracking**
+- **Stripe Connect Payouts** with identity verification
 
-Each vendor operates independently within the platform.
-
-Features include:
-
-- Vendor dashboard
-- Product management
-- Order tracking
-- Revenue monitoring
-- Stripe payout integration
+---
 
 ### 👑 Admin
-
-Platform administrators can:
-
-- Manage users
-- Approve vendors
-- Monitor products
-- Maintain marketplace integrity
+Administrators maintain full marketplace control:
+- **Super Admin Dashboard** for all platform entities
+- **Role-Based Access Control (RBAC)**
+- **Vendor Moderation** (approve, suspend vendors)
+- **Marketplace Monitoring** for products and orders
 
 ---
 
