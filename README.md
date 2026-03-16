@@ -430,7 +430,7 @@ http://localhost:3000/admin
 Credentials:
 
 ```
-Email: admin@demo.com
+Email: demo@demo.com
 Password: demo
 ```
 
