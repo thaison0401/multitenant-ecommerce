@@ -248,24 +248,25 @@ Administrators maintain full marketplace control:
 ## 📸 Screenshots
 
 <p align="center">
-The following screenshots demonstrate the full lifecycle of the platform — from the customer shopping experience to vendor management and platform administration.
+The following screenshots illustrate the complete platform workflow — from customer product discovery and checkout to vendor product management and platform administration.
 </p>
 
 <table>
+
 <tr>
 <td align="center" width="50%">
 
 <img src="./screenshots/marketplace.png" width="420"/><br/>
-<b>🛍 Marketplace Browsing</b><br/>
-<i>Product discovery with advanced filtering powered by Nuqs.</i>
+<b>🛍 Marketplace Product Discovery</b><br/>
+<i>Customers can browse products across multiple vendors with category navigation and marketplace-style product cards.</i>
 
 </td>
 
 <td align="center" width="50%">
 
 <img src="./screenshots/cart.png" width="420"/><br/>
-<b>🛒 Shopping Cart</b><br/>
-<i>State-managed cart system built with Zustand for seamless client-side updates.</i>
+<b>🛒 Shopping Cart System</b><br/>
+<i>Client-side cart state managed with Zustand for fast and reactive shopping experiences.</i>
 
 </td>
 </tr>
@@ -274,8 +275,8 @@ The following screenshots demonstrate the full lifecycle of the platform — fro
 <td align="center">
 
 <img src="./screenshots/checkout.png" width="420"/><br/>
-<b>💳 Secure Checkout</b><br/>
-<i>Stripe Connect integration enabling secure multi-vendor transactions.</i>
+<b>💳 Stripe Secure Checkout</b><br/>
+<i>Stripe-hosted checkout page handling secure payments for marketplace transactions.</i>
 
 </td>
 
@@ -283,7 +284,7 @@ The following screenshots demonstrate the full lifecycle of the platform — fro
 
 <img src="./screenshots/library.png" width="420"/><br/>
 <b>📚 Purchases Library</b><br/>
-<i>Gated digital content access after purchase with secure download management.</i>
+<i>Users can access previously purchased products and manage their digital purchases.</i>
 
 </td>
 </tr>
@@ -292,19 +293,20 @@ The following screenshots demonstrate the full lifecycle of the platform — fro
 <td align="center">
 
 <img src="./screenshots/vendor-dashboard.png" width="420"/><br/>
-<b>🏪 Vendor Dashboard</b><br/>
-<i>Vendor storefront and product management powered by Payload CMS.</i>
+<b>🏪 Product Creation (Vendor Panel)</b><br/>
+<i>Product management interface powered by Payload CMS with rich product fields, images, and metadata.</i>
 
 </td>
 
 <td align="center">
 
 <img src="./screenshots/admin-dashboard.png" width="420"/><br/>
-<b>👑 Admin Control Panel</b><br/>
-<i>Platform-level moderation with RBAC permissions and vendor KYC verification.</i>
+<b>👑 Admin CMS Dashboard</b><br/>
+<i>Payload CMS admin panel used to manage users, products, categories, orders, and marketplace data.</i>
 
 </td>
 </tr>
+
 </table>
 
 ---
