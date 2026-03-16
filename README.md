@@ -256,7 +256,7 @@ The following screenshots illustrate the complete platform workflow — from cus
 <tr>
 <td align="center" width="50%">
 
-<img src="./screenshots/marketplace.png" width="420"/><br/>
+<img src="./screenshots/marketplace.png" width="520"/><br/>
 <b>🛍 Marketplace Product Discovery</b><br/>
 <i>Customers can browse products across multiple vendors with category navigation and marketplace-style product cards.</i>
 
@@ -264,7 +264,7 @@ The following screenshots illustrate the complete platform workflow — from cus
 
 <td align="center" width="50%">
 
-<img src="./screenshots/cart.png" width="420"/><br/>
+<img src="./screenshots/cart.png" width="520"/><br/>
 <b>🛒 Shopping Cart System</b><br/>
 <i>Client-side cart state managed with Zustand for fast and reactive shopping experiences.</i>
 
@@ -274,7 +274,7 @@ The following screenshots illustrate the complete platform workflow — from cus
 <tr>
 <td align="center">
 
-<img src="./screenshots/checkout.png" width="420"/><br/>
+<img src="./screenshots/checkout.png" width="520"/><br/>
 <b>💳 Stripe Secure Checkout</b><br/>
 <i>Stripe-hosted checkout page handling secure payments for marketplace transactions.</i>
 
@@ -282,7 +282,7 @@ The following screenshots illustrate the complete platform workflow — from cus
 
 <td align="center">
 
-<img src="./screenshots/library.png" width="420"/><br/>
+<img src="./screenshots/library.png" width="520"/><br/>
 <b>📚 Purchases Library</b><br/>
 <i>Users can access previously purchased products and manage their digital purchases.</i>
 
@@ -292,7 +292,7 @@ The following screenshots illustrate the complete platform workflow — from cus
 <tr>
 <td align="center">
 
-<img src="./screenshots/vendor-dashboard.png" width="420"/><br/>
+<img src="./screenshots/vendor-dashboard.png" width="520"/><br/>
 <b>🏪 Product Creation (Vendor Panel)</b><br/>
 <i>Product management interface powered by Payload CMS with rich product fields, images, and metadata.</i>
 
@@ -300,7 +300,7 @@ The following screenshots illustrate the complete platform workflow — from cus
 
 <td align="center">
 
-<img src="./screenshots/admin-dashboard.png" width="420"/><br/>
+<img src="./screenshots/admin-dashboard.png" width="520"/><br/>
 <b>👑 Admin CMS Dashboard</b><br/>
 <i>Payload CMS admin panel used to manage users, products, categories, orders, and marketplace data.</i>
 
