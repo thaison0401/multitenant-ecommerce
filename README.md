@@ -247,15 +247,71 @@ Administrators maintain full marketplace control:
 
 ## 📸 Screenshots
 
-<!--
-Add screenshots here when available.
+<p align="center">
+The following screenshots demonstrate the full lifecycle of the platform — from the customer shopping experience to vendor management and platform administration.
+</p>
 
-Example:
+<table>
+<tr>
+<td align="center" width="50%">
 
-![Homepage](./screenshots/homepage.png)
-![Product Page](./screenshots/product-page.png)
-![Vendor Dashboard](./screenshots/vendor-dashboard.png)
--->
+<img src="./screenshots/marketplace.png" width="420"/>
+
+<b>🛍 Marketplace Browsing</b>  
+<i>Product discovery with advanced filtering powered by Nuqs.</i>
+
+</td>
+
+<td align="center" width="50%">
+
+<img src="./screenshots/cart.png" width="420"/>
+
+<b>🛒 Shopping Cart</b>  
+<i>State-managed cart system built with Zustand for seamless client-side updates.</i>
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+<img src="./screenshots/checkout.png" width="420"/>
+
+<b>💳 Secure Checkout</b>  
+<i>Stripe Connect integration enabling secure multi-vendor transactions.</i>
+
+</td>
+
+<td align="center">
+
+<img src="./screenshots/library.png" width="420"/>
+
+<b>📚 Purchases Library</b>  
+<i>Gated digital content access after purchase with secure download management.</i>
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+<img src="./screenshots/vendor-dashboard.png" width="420"/>
+
+<b>🏪 Vendor Dashboard</b>  
+<i>Vendor storefront and product management powered by Payload CMS.</i>
+
+</td>
+
+<td align="center">
+
+<img src="./screenshots/admin-dashboard.png" width="420"/>
+
+<b>👑 Admin Control Panel</b>  
+<i>Platform-level moderation with RBAC permissions and vendor KYC verification.</i>
+
+</td>
+</tr>
+</table>
 
 ---
 
