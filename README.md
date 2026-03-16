@@ -22,24 +22,6 @@ A modern <b>full-stack multi-vendor marketplace</b> built with <b>Next.js 14</b>
 
 ---
 
-## 🎥 Video Demo
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
-    <img 
-      src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg"
-      width="850"
-      alt="Video Demo Multi-Tenant Marketplace Platform"
-    />
-  </a>
-</p>
-
-<p align="center">
-  <i>▶️ A concise 3-minute walkthrough demonstrating the end-to-end marketplace workflow — from product discovery and Stripe Connect checkout to Vendor CMS management and Admin RBAC.</i>
-</p>
-
----
-
 ## ⭐ Project Highlights
 
 This project demonstrates how to build a **production-ready multi-vendor marketplace** using modern web technologies.
