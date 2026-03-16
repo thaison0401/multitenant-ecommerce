@@ -255,18 +255,16 @@ The following screenshots demonstrate the full lifecycle of the platform — fro
 <tr>
 <td align="center" width="50%">
 
-<img src="./screenshots/marketplace.png" width="420"/>
-
-<b>🛍 Marketplace Browsing</b>  
+<img src="./screenshots/marketplace.png" width="420"/><br/>
+<b>🛍 Marketplace Browsing</b><br/>
 <i>Product discovery with advanced filtering powered by Nuqs.</i>
 
 </td>
 
 <td align="center" width="50%">
 
-<img src="./screenshots/cart.png" width="420"/>
-
-<b>🛒 Shopping Cart</b>  
+<img src="./screenshots/cart.png" width="420"/><br/>
+<b>🛒 Shopping Cart</b><br/>
 <i>State-managed cart system built with Zustand for seamless client-side updates.</i>
 
 </td>
@@ -275,18 +273,16 @@ The following screenshots demonstrate the full lifecycle of the platform — fro
 <tr>
 <td align="center">
 
-<img src="./screenshots/checkout.png" width="420"/>
-
-<b>💳 Secure Checkout</b>  
+<img src="./screenshots/checkout.png" width="420"/><br/>
+<b>💳 Secure Checkout</b><br/>
 <i>Stripe Connect integration enabling secure multi-vendor transactions.</i>
 
 </td>
 
 <td align="center">
 
-<img src="./screenshots/library.png" width="420"/>
-
-<b>📚 Purchases Library</b>  
+<img src="./screenshots/library.png" width="420"/><br/>
+<b>📚 Purchases Library</b><br/>
 <i>Gated digital content access after purchase with secure download management.</i>
 
 </td>
@@ -295,18 +291,16 @@ The following screenshots demonstrate the full lifecycle of the platform — fro
 <tr>
 <td align="center">
 
-<img src="./screenshots/vendor-dashboard.png" width="420"/>
-
-<b>🏪 Vendor Dashboard</b>  
+<img src="./screenshots/vendor-dashboard.png" width="420"/><br/>
+<b>🏪 Vendor Dashboard</b><br/>
 <i>Vendor storefront and product management powered by Payload CMS.</i>
 
 </td>
 
 <td align="center">
 
-<img src="./screenshots/admin-dashboard.png" width="420"/>
-
-<b>👑 Admin Control Panel</b>  
+<img src="./screenshots/admin-dashboard.png" width="420"/><br/>
+<b>👑 Admin Control Panel</b><br/>
 <i>Platform-level moderation with RBAC permissions and vendor KYC verification.</i>
 
 </td>
