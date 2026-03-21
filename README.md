@@ -419,15 +419,9 @@ http://localhost:3000
 
 ---
 
-## 🔑 Default Admin Access
+## 🔑 Default User Access
 
-Admin dashboard:
-
-```
-http://localhost:3000/admin
-```
-
-Credentials:
+To test the customer experience (product discovery, persistent cart, and purchases library) without creating a new account, you can use this default user:
 
 ```
 Email: demo@demo.com
