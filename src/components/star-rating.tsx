@@ -2,6 +2,7 @@ import { StarIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+//Chuẩn hoá giá trị rating
 const MAX_RATING = 5;
 const MIN_RATING = 0;
 
@@ -27,7 +28,7 @@ export const StarRating = ({
           key={index}
           className={cn(
             "size-4",
-            index < safeRating ? " fill-black" : "",
+            index < safeRating ? " fill-black" : "", //Tô màu sao dựa trên rating
             iconClassName
           )}
         />

@@ -29,7 +29,7 @@ const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    user: Users.slug, //Xác định collection users là tài khoản đăng nhập admin
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -68,21 +68,22 @@ export default buildConfig({
   plugins: [
     payloadCloudPlugin(),
     multiTenantPlugin<Config>({
+      //Cho phép nhiều gian hàng dùng chung hệ thống
       collections: {
         products: {},
         media: {},
       },
       tenantsArrayField: {
-        includeDefaultField: false,
+        includeDefaultField: false, //Tránh auto gán tenant mặc định
       },
-      userHasAccessToAllTenants: (user) => isSuperAdmin(user),
+      userHasAccessToAllTenants: (user) => isSuperAdmin(user), //Super Admin quản lý toàn bộ gian hàng
     }),
     vercelBlobStorage({
       enabled: true,
       collections: {
         media: true,
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      token: process.env.BLOB_READ_WRITE_TOKEN, //Upload ảnh/file lên Vercel Blob (Không lưu file trong server)
     }),
   ],
 });

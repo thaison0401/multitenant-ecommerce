@@ -41,7 +41,7 @@ export const Orders: CollectionConfig = {
       label: "Sản phẩm",
     },
     {
-      name: "stripeCheckoutSessionId",
+      name: "stripeCheckoutSessionId", //Lưu Stripe session để đối soát
       type: "text",
       required: true,
       label: "Mã giao dịch Stripe (Stripe ID)",

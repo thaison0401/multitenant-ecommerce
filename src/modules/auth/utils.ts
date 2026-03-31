@@ -10,14 +10,12 @@ export const generateAuthCookie = async ({ prefix, value }: Props) => {
   cookies.set({
     name: `${prefix}-token`,
     value,
-    httpOnly: true,
+    httpOnly: true, //JS phía client không đọc được, Chống XSS đánh cắp token
     path: "/",
-    // This enables the cookie auth on localhost
-    // But it will not work with subdomains turned on
     ...(process.env.NODE_ENV !== "development" && {
-      sameSite: "none",
+      sameSite: "none", //Cho phép cookie gửi qua cross-site
       domain: process.env.NEXT_PUBLIC_ROOT_DOMAIN,
-      secure: true,
+      secure: true, //Cookie chỉ gửi qua HTTPS
     }),
   });
 };

@@ -63,7 +63,7 @@ export const Tenants: CollectionConfig = {
       name: "stripeDetailsSubmitted",
       type: "checkbox",
       access: {
-        update: ({ req }) => isSuperAdmin(req.user),
+        update: ({ req }) => isSuperAdmin(req.user), //Chỉ Super Admin mới được bật checkbox này
       },
       label: "Đã hoàn tất xác minh Stripe",
       admin: {

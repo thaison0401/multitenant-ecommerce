@@ -6,7 +6,7 @@ export const categoriesRouter = createTRPCRouter({
     // 1. Lấy dữ liệu từ DB (Vẫn sort theo tên để phần thân giữa được A-Z)
     const data = await ctx.db.find({
       collection: "categories",
-      depth: 1, // Populate subcategories
+      depth: 1, // Tự động lấy dữ liệu con
       pagination: false,
       where: {
         parent: {

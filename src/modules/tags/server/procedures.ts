@@ -13,7 +13,7 @@ export const tagsRouter = createTRPCRouter({
     )
     .query(async ({ ctx, input }) => {
       const data = await ctx.db.find({
-        collection: "tags",
+        collection: "tags", // truy van vao collection "tags"
         page: input.cursor,
         limit: input.limit,
       });
