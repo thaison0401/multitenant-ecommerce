@@ -15,7 +15,7 @@ export const Products: CollectionConfig = {
 
       const tenant = req.user?.tenants?.[0]?.tenant as Tenant;
 
-      return Boolean(tenant?.stripeDetailsSubmitted);
+      return Boolean(tenant?.stripeDetailsSubmitted); //Chặn seller chưa xác minh Stripe đăng bán
     },
     delete: ({ req }) => isSuperAdmin(req.user),
   },

@@ -15,13 +15,13 @@ export const tenantsRouter = createTRPCRouter({
     .query(async ({ ctx, input }) => {
       const tenantsData = await ctx.db.find({
         collection: "tenants",
-        depth: 1, // "tenant.image" is a type of "Media"
+        depth: 1, // dang du lieu lien ket "tenant.image" is a type of "Media"
         where: {
           slug: {
             equals: input.slug,
           },
         },
-        limit: 1,
+        limit: 1, // duy nhất 1 nhà cung cấp
         pagination: false,
       });
 

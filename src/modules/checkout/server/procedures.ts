@@ -20,7 +20,7 @@ export const checkoutRouter = createTRPCRouter({
     const user = await ctx.db.findByID({
       collection: "users",
       id: ctx.session.user.id,
-      depth: 0, // user.tenants[0] is going to be a string (tenant ID)
+      depth: 0, // (tenant ID)
     });
 
     if (!user) {
@@ -30,7 +30,7 @@ export const checkoutRouter = createTRPCRouter({
       });
     }
 
-    const tenantId = user.tenants?.[0]?.tenant as string; // This is an id because of depth: 0
+    const tenantId = user.tenants?.[0]?.tenant as string;
     const tenant = await ctx.db.findByID({
       collection: "tenants",
       id: tenantId,
@@ -75,17 +75,17 @@ export const checkoutRouter = createTRPCRouter({
           and: [
             {
               id: {
-                in: input.productIds,
+                in: input.productIds, //sp tt chua
               },
             },
             {
               "tenant.slug": {
-                equals: input.tenantSlug,
+                equals: input.tenantSlug, //sp thuoc ncc
               },
             },
             {
               isArchived: {
-                not_equals: true,
+                not_equals: true, // an hay bi xoa
               },
             },
           ],
@@ -110,12 +110,12 @@ export const checkoutRouter = createTRPCRouter({
         },
       });
 
-      const tenant = tenantsData.docs[0];
+      const tenant = tenantsData.docs[0]; //lay thong tin tenant
 
       if (!tenant) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: "Tenant not found",
+          message: "Nhà cung cấp không tồn tại",
         });
       }
 
@@ -131,7 +131,7 @@ export const checkoutRouter = createTRPCRouter({
         products.docs.map((product) => ({
           quantity: 1,
           price_data: {
-            unit_amount: product.price * 100, //Stripe handles prices in cents
+            unit_amount: product.price * 100, 
             currency: "usd",
             product_data: {
               name: product.name,
@@ -163,7 +163,7 @@ export const checkoutRouter = createTRPCRouter({
           mode: "payment",
           line_items: lineItems,
           invoice_creation: {
-            enabled: true,
+            enabled: true, // Tạo hóa đơn cho phiên thanh toán
           },
           metadata: {
             userId: ctx.session.user.id,
@@ -171,7 +171,7 @@ export const checkoutRouter = createTRPCRouter({
           payment_intent_data: {
             application_fee_amount: platformFeeAmount,
           },
-          locale: "vi", // Trang checkouut sử dụng ngôn ngữ tiếng Việt
+          locale: "vi",
         },
         {
           stripeAccount: tenant.stripeAccountId,

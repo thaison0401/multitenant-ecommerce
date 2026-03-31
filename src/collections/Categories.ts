@@ -9,14 +9,14 @@ export const Categories: CollectionConfig = {
     plural: "Danh mục",
   },
   access: {
-    read: () => true,
+    read: () => true, //Phân quyền rõ ràng, tránh user tự ý sửa danh mục.
     create: ({ req }) => isSuperAdmin(req.user),
     update: ({ req }) => isSuperAdmin(req.user),
     delete: ({ req }) => isSuperAdmin(req.user),
   },
   admin: {
     useAsTitle: "name",
-    hidden: ({ user }) => !isSuperAdmin(user),
+    hidden: ({ user }) => !isSuperAdmin(user), //Ẩn menu trong Admin Panel với user thường.
   },
   fields: [
     {

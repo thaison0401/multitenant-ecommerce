@@ -16,24 +16,27 @@ export const createTRPCContext = cache(async () => {
 // For instance, the use of a t variable
 // is common in i18n libraries.
 const t = initTRPC.create({
+  //Khởi tạo router, procedure, middleware cho tRPC.
   /**
    * @see https://trpc.io/docs/server/data-transformers
    */
   transformer: superjson,
 });
-// Base router and procedure helpers
+// Tạo router cho các module API
 export const createTRPCRouter = t.router;
 export const createCallerFactory = t.createCallerFactory;
 export const baseProcedure = t.procedure.use(async ({ next }) => {
   const payload = await getPayload({ config });
 
-  return next({ ctx: { db: payload } });
+  return next({ ctx: { db: payload } }); ////Mọi API đều truy cập được database Payload CMS.
 });
 
+//Chỉ cho user đã đăng nhập gọi API
 export const protectedProcedure = baseProcedure.use(async ({ ctx, next }) => {
   const headers = await getHeaders();
-  const session = await ctx.db.auth({ headers });
+  const session = await ctx.db.auth({ headers }); //Xác thực session
 
+  //chan chua dang nhap
   if (!session.user) {
     throw new TRPCError({
       code: "UNAUTHORIZED",

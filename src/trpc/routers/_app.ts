@@ -9,6 +9,7 @@ import { productsRouter } from "@/modules/products/server/procedures";
 import { categoriesRouter } from "@/modules/categories/server/procedures";
 import { checkoutRouter } from "@/modules/checkout/server/procedures";
 
+//Gom toàn bộ API backend của hệ thống vào một router duy nhất để frontend gọi.
 export const appRouter = createTRPCRouter({
   auth: authRouter,
   tags: tagsRouter,
@@ -19,5 +20,5 @@ export const appRouter = createTRPCRouter({
   products: productsRouter,
   categories: categoriesRouter,
 });
-// export type definition of API
+// Giup fe tu dong goi y api khi su dung
 export type AppRouter = typeof appRouter;

@@ -10,6 +10,7 @@ import { ExpandedLineItem } from "@/modules/checkout/types";
 export async function POST(req: Request) {
   let event: Stripe.Event;
 
+  //Xác minh webhook Stripe (bắt buộc) -> Đảm bảo request đến từ Stripe
   try {
     event = stripe.webhooks.constructEvent(
       await (await req.blob()).text(),
@@ -34,25 +35,27 @@ export async function POST(req: Request) {
 
   console.log("✅ Success:", event.id);
 
+  //Xử lý các sự kiện webhook được phép
   const permittedEvents: string[] = [
     "checkout.session.completed",
     "account.updated",
   ];
 
-  const payload = await getPayload({ config });
+  const payload = await getPayload({ config }); //Cho phép thao tác DB (users, orders, tenants)
 
   if (permittedEvents.includes(event.type)) {
     let data;
 
     try {
       switch (event.type) {
-        case "checkout.session.completed":
-          data = event.data.object as Stripe.Checkout.Session;
+        case "checkout.session.completed": //Tạo đơn hàng sau khi thanh toán thành công
+          data = event.data.object as Stripe.Checkout.Session; //Lấy session thanh toán
 
           if (!data.metadata?.userId) {
             throw new Error("User ID is required");
           }
 
+          //Tìm user trong DB
           const user = await payload.findByID({
             collection: "users",
             id: data.metadata?.userId,
@@ -65,7 +68,7 @@ export async function POST(req: Request) {
           const expandedSession = await stripe.checkout.sessions.retrieve(
             data.id,
             {
-              expand: ["line_items.data.price.product"],
+              expand: ["line_items.data.price.product"], // lấy chi tiết sản phẩm trong đơn hàng
             },
             {
               stripeAccount: event.account,
@@ -84,6 +87,7 @@ export async function POST(req: Request) {
 
           for (const item of lineItems) {
             await payload.create({
+              //Tạo đơn hàng trong DB
               collection: "orders",
               data: {
                 stripeCheckoutSessionId: data.id,
@@ -95,9 +99,10 @@ export async function POST(req: Request) {
             });
           }
           break;
-        case "account.updated":
-          data = event.data.object as Stripe.Account;
+        case "account.updated": //Cập nhật gian hàng đã xác minh Stripe hay chưa
+          data = event.data.object as Stripe.Account; //Lấy thông tin tài khoản Stripe
 
+          //cập nhật tenant tương ứng trong DB
           await payload.update({
             collection: "tenants",
             where: {
@@ -106,7 +111,7 @@ export async function POST(req: Request) {
               },
             },
             data: {
-              stripeDetailsSubmitted: data.details_submitted,
+              stripeDetailsSubmitted: data.details_submitted, //Cập nhật trạng thái xác minh
             },
           });
 

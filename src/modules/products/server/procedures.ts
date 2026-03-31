@@ -74,6 +74,7 @@ export const productsRouter = createTRPCRouter({
             reviews.totalDocs
           : 0;
 
+      //Tính phân bố sao
       const ratingDistribution: Record<number, number> = {
         5: 0,
         4: 0,
@@ -169,7 +170,7 @@ export const productsRouter = createTRPCRouter({
         // Make sure to not load products set to "isPrivate: true" (using reverse not_equals logic)
         // These products are exclusively private to the tenant store
         where["isPrivate"] = {
-          not_equals: true,
+          not_equals: true, // Tránh lộ sản phẩm riêng tư của gian hàng
         };
       }
 
@@ -238,7 +239,7 @@ export const productsRouter = createTRPCRouter({
       const dataWithSummarizedReviews = await Promise.all(
         data.docs.map(async (doc) => {
           const reviewsData = await ctx.db.find({
-            collection: "reviews",
+            collection: "reviews", // gắn review theo product id
             pagination: false,
             where: {
               product: {

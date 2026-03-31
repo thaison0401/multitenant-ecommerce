@@ -3,6 +3,7 @@ import { tenantsArrayField } from "@payloadcms/plugin-multi-tenant/fields";
 
 import { isSuperAdmin } from "@/lib/access";
 
+//Quan hệ được thể hiện gián tiếp thông qua: users.tenants và logic tạo product dựa vào tenant của user.
 const defaultTenantArrayField = tenantsArrayField({
   tenantsArrayFieldName: "tenants",
   tenantsCollectionSlug: "tenants",
@@ -30,14 +31,14 @@ export const Users: CollectionConfig = {
     create: ({ req }) => isSuperAdmin(req.user),
     delete: ({ req }) => isSuperAdmin(req.user),
     update: ({ req, id }) => {
-      if (isSuperAdmin(req.user)) return true;
+      if (isSuperAdmin(req.user)) return true; // Admin → sửa tất cả
 
-      return req.user?.id === id;
+      return req.user?.id === id; //User → chỉ sửa chính mình
     },
   },
   admin: {
     useAsTitle: "username",
-    hidden: ({ user }) => !isSuperAdmin(user),
+    hidden: ({ user }) => !isSuperAdmin(user), //Ẩn menu trong Admin Panel với user thường.
   },
   auth: {
     cookies: {

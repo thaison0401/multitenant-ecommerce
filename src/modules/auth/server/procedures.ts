@@ -20,7 +20,7 @@ export const authRouter = createTRPCRouter({
     .input(registerSchema)
     .mutation(async ({ input, ctx }) => {
       const existingData = await ctx.db.find({
-        collection: "users",
+        collection: "users", // Truy vấn DB xem username đã tồn tại chưa
         limit: 1,
         where: {
           username: {
@@ -34,11 +34,11 @@ export const authRouter = createTRPCRouter({
       if (existingUser) {
         throw new TRPCError({
           code: "BAD_REQUEST",
-          message: "Tên cửa hàng đã tồn tại", // Đã Việt hóa
+          message: "Tên cửa hàng đã tồn tại",
         });
       }
 
-      const account = await stripe.accounts.create({});
+      const account = await stripe.accounts.create({}); //Tạo tài khoản Stripe->Mỗi tenant có 1 Stripe account riêng
 
       if (!account) {
         throw new TRPCError({
@@ -61,10 +61,10 @@ export const authRouter = createTRPCRouter({
         data: {
           email: input.email,
           username: input.username,
-          password: input.password, // this will be hashed
+          password: input.password,
           tenants: [
             {
-              tenant: tenant.id,
+              tenant: tenant.id, //Gán user vào tenant
             },
           ],
         },
@@ -84,6 +84,7 @@ export const authRouter = createTRPCRouter({
           throw new Error();
         }
 
+        //Tạo cookie chứa JWT
         await generateAuthCookie({
           prefix: ctx.db.config.cookiePrefix,
           value: data.token,
@@ -100,7 +101,7 @@ export const authRouter = createTRPCRouter({
   login: baseProcedure.input(loginSchema).mutation(async ({ input, ctx }) => {
     try {
       const data = await ctx.db.login({
-        collection: "users",
+        collection: "users", //Kiểm tra thông tin đăng nhập
         data: {
           email: input.email,
           password: input.password,
@@ -113,7 +114,7 @@ export const authRouter = createTRPCRouter({
 
       await generateAuthCookie({
         prefix: ctx.db.config.cookiePrefix,
-        value: data.token,
+        value: data.token, //Lưu token vào cookie
       });
 
       return data;

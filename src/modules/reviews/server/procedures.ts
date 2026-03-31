@@ -35,7 +35,7 @@ export const reviewsRouter = createTRPCRouter({
             },
             {
               user: {
-                equals: ctx.session.user.id,
+                equals: ctx.session.user.id, //chống User A thao tác dữ liệu của User B
               },
             },
           ],
@@ -118,7 +118,7 @@ export const reviewsRouter = createTRPCRouter({
     )
     .mutation(async ({ input, ctx }) => {
       const existingReview = await ctx.db.findByID({
-        depth: 0, // existingReview.user will be the user ID
+        depth: 0, // existingReview.user = user ID
         collection: "reviews",
         id: input.reviewId,
       });
@@ -133,7 +133,7 @@ export const reviewsRouter = createTRPCRouter({
       if (existingReview.user !== ctx.session.user.id) {
         throw new TRPCError({
           code: "FORBIDDEN",
-          message: "Bạn không có quyền chỉnh sửa đánh giá này",
+          message: "Bạn không có quyền chỉnh sửa đánh giá này", //chống User A thao tác dữ liệu của User B
         });
       }
 

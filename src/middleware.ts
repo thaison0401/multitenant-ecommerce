@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+//Chỉ định route middleware áp dụng middleware cho toàn bộ page Trừ API, static, media, file hệ thống
 export const config = {
   matcher: [
     /*

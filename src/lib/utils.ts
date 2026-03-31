@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
+//Hàm tạo URL truy cập theo từng tenant (nhà cung cấp)
 export function generateTenantURL(tenantSlug: string) {
   const isDevelopment = process.env.NODE_ENV === "development";
   const isSubdomainRoutingEnabled =

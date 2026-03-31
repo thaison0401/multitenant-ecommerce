@@ -18,12 +18,12 @@ export const StarPicker = ({
   disabled,
   className,
 }: StarPickerProps) => {
-  const [hoverValue, setHoverValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(0); //Lưu trạng thái hover
 
   const handleChange = (value: number) => {
     console.log({ value });
 
-    onChange?.(value);
+    onChange?.(value); //Gửi giá trị ra ngoài
   };
 
   return (
@@ -43,14 +43,14 @@ export const StarPicker = ({
             "p-0.5 hover:scale-110 transition",
             !disabled && "cursor-pointer"
           )}
-          onClick={() => handleChange(star)}
+          onClick={() => handleChange(star)} //Bắt sự kiện click chọn sao
           onMouseEnter={() => setHoverValue(star)}
           onMouseLeave={() => setHoverValue(0)}
         >
           <StarIcon
             className={cn(
               "size-5",
-              (hoverValue || value) >= star
+              (hoverValue || value) >= star //Tô màu sao
                 ? "fill-black stroke-black"
                 : "stroke-black"
             )}
